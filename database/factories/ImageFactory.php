@@ -14,7 +14,7 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            'url' => 'products/'.$this->faker->image('public/storage/products', 640, 480, null,false)
+            'url' => 'products/'.$this->faker->biasedNumberBetween($min = 1, $max = 90).'.png' //$this->faker->image('public/storage/products', 640, 480, null,false)
         ];
     }
 }

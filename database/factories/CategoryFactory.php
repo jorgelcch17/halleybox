@@ -14,7 +14,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'image' => 'categories/'.$this->faker->image('public/storage/categories', 640, 480, null, false)
+            'image' => 'categories/'.$this->faker->biasedNumberBetween($min = 1, $max = 90).'.png' //$this->faker->image('public/storage/categories', 640, 480, null, false)
         ];
     }
 }
