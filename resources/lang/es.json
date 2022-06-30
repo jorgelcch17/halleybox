@@ -1,4 +1,5 @@
 {
+    "Profile": "Perfil de usuario",
     "Email": "Correo",
     "Password": "Contraseña",
     "Login": "Iniciar sesión",
@@ -7,6 +8,7 @@
     "Sign up now": "Registrarse ahora",
     "Sign up with Facebook": "Registrarse con Facebook",
     "Sign up with Google": "Registrarse con Google",
+    "Log Out": "Cerrar sesión",
     "or": "o",
     "Terms of service": "Términos de servicio",
     "Privacy policy": "Política de privacidad",

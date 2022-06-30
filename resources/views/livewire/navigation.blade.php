@@ -1,4 +1,4 @@
-<header x-data="dropdown()" class="bg-neutral-700 sticky top-0 z-50" >
+<header x-data="dropdown()" class="bg-neutral-700 sticky top-0" style="z-index: 900">
     <div class="container flex items-center h-16 justify-between md:justify-start">
         <a :class="{'bg-opacity-100 text-orange-500': open}" x-on:click="show()" class="flex flex-col items-center justify-center px-6 md:px-4 order-last md:order-first bg-white bg-opacity-25 text-white cursor-pointer fornt-semibold h-full">
             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -38,11 +38,14 @@
                         <div class="block px-4 py-2 text-xs text-gray-400">
                             {{ __('Manage Account') }}
                         </div>
-
+                        
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
+                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                            Mis ordenes
+                        </x-jet-dropdown-link>
                         {{-- @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                 {{ __('API Tokens') }}
