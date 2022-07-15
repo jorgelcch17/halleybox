@@ -6,8 +6,9 @@
             </svg>
             <span class="select-none text-sm hidden md:block">Categorias</span>
         </a>
-        <a href="/" class="mx-6">
+        <a href="/" class="flex items-center mx-6">
             <x-jet-application-mark class="block h-9 w-auto"/>
+            <span class="font-bold text-white ml-2">ecommerce</span>
         </a>
 
         <div class="flex-1 hidden md:block">@livewire('search')</div>
@@ -43,8 +44,12 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
-                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                        <x-jet-dropdown-link href="{{ route('admin.index') }}">
                             Mis ordenes
+                        </x-jet-dropdown-link>
+
+                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                            Panel administrador
                         </x-jet-dropdown-link>
                         {{-- @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
