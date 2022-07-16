@@ -5,14 +5,18 @@ namespace App\Http\Livewire\Admin;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Image;
 use App\Models\Subcategory;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
+
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Str;
 
 class EditProduct extends Component
 {
+
     public $product, $categories, $subcategories, $brands, $slug;
 
     public $category_id;
@@ -28,6 +32,8 @@ class EditProduct extends Component
         'product.quantity' => 'numeric'
     ];
 
+    protected $listeners = ['refreshProduct', 'delete'];
+
     public function mount(Product $product){
         $this->product = $product;
 
@@ -42,6 +48,10 @@ class EditProduct extends Component
         $this->brands = Brand::whereHas('categories', function(Builder $query){
             $query->where('category_id', $this->category_id);
         })->get();
+    }
+
+    public function refreshProduct(){
+        $this->product = $this->product->fresh();
     }
 
     public function updatedProductName($value){
@@ -81,6 +91,26 @@ class EditProduct extends Component
         $this->product->slug =$this->slug;
         $this->product->save();
         $this->emit('saved');
+    }
+
+    public function deleteImage(Image $image){
+        Storage::delete([$image->url]);
+        $image->delete();
+
+        $this->product = $this->product->fresh();
+    }
+
+    public function delete(){
+        $images = $this->product->images;
+
+        foreach ($images as $image){
+            Storage::delete($image->url);
+            $image->delete();
+        }
+
+        $this->product->delete();
+
+        return redirect()->route('admin.index');
     }
 
     public function render()

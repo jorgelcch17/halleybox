@@ -51,9 +51,15 @@
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="flex-shrink-0 h-10 w-10">
-                                            <img class="h-10 w-10 rounded-full object-cover"
-                                                src="{{ Storage::url($product->images->first()->url) }}"
-                                                alt="">
+                                            @if ($product->images->count())
+                                                <img class="h-10 w-10 rounded-full object-cover"
+                                                    src="{{ Storage::url($product->images->first()->url) }}"
+                                                    alt="">
+                                            @else
+                                                <img class="h-10 w-10 rounded-full object-cover"
+                                                    src="https://rlv.zcache.es/pegatina_redonda_signo_de_interrogacion_negro-r4f20880c94de4cdf8d33b29d763efc04_0ugmm_8byvr_307.jpg"
+                                                    alt="">
+                                            @endif
                                         </div>
                                         <div class="ml-4">
                                             <div class="text-sm font-medium text-gray-900">
@@ -82,6 +88,7 @@
                                                 Publicado
                                             </span>
                                         @break
+
                                         @default
                                     @endswitch
                                 </td>
