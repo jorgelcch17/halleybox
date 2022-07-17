@@ -44,11 +44,11 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
-                        <x-jet-dropdown-link href="{{ route('admin.index') }}">
+                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
                             Mis ordenes
                         </x-jet-dropdown-link>
 
-                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                        <x-jet-dropdown-link href="{{ route('admin.index') }}">
                             Panel administrador
                         </x-jet-dropdown-link>
                         {{-- @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

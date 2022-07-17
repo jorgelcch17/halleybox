@@ -1,32 +1,35 @@
 <x-app-layout>
     <div class="container py-8">
         @foreach ($categories as $category)
-            <section class="mb-6">
-                <div class="flex justify-between items-center mb-2">
-                    <h1 class="text-lg uppercase font-semibold text-gray-700">{{ $category->name }}</h1>
-                    <a class="text-orange-500 hover:text-orange-400 hover:underline ml-2 font-semibold" href="{{ route('categories.show', $category) }}">Ver más <i class="fa-solid fa-angle-right"></i></a>
-                </div>
-                @livewire('category-products',['category'=>$category])
-            </section>
+            @if ($category->products->count())
+                <section class="mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h1 class="text-lg uppercase font-semibold text-gray-700">{{ $category->name }}</h1>
+                        <a class="text-orange-500 hover:text-orange-400 hover:underline ml-2 font-semibold"
+                            href="{{ route('categories.show', $category) }}">Ver más <i
+                                class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                    @livewire('category-products', ['category' => $category])
+                </section>
+            @endif
         @endforeach
     </div>
 
     @push('script')
         <script>
             Livewire.on('glider', function(id) {
-                new Glider(document.querySelector('.glider-'+id), {
+                new Glider(document.querySelector('.glider-' + id), {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     draggable: true,
                     dragVelocity: 1,
                     duration: 1,
-                    dots: '.glider-'+id+'~ .dots',
+                    dots: '.glider-' + id + '~ .dots',
                     arrows: {
-                        prev:'.glider-'+id+ '~ .glider-prev',
-                        next:'.glider-'+id+ '~ .glider-next'
+                        prev: '.glider-' + id + '~ .glider-prev',
+                        next: '.glider-' + id + '~ .glider-next'
                     },
-                    responsive: [
-                        {
+                    responsive: [{
                             breakpoint: 640,
                             settings: {
                                 slidesToShow: 2.5,

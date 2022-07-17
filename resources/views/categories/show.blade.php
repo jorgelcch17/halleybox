@@ -6,6 +6,5 @@
         </figure>
 
         @livewire('category-filter', ['category' => $category])
-        <x-button color="red" />
     </div>
 </x-app-layout>
