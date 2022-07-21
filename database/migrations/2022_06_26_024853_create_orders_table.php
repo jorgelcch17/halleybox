@@ -27,11 +27,13 @@ class CreateOrdersTable extends Migration
             $table->float('shipping_cost');
             $table->float('total');
             $table->json('content');
-            $table->foreignId('department_id')->nullable()->constrained();
-            $table->foreignId('city_id')->nullable()->constrained();
-            $table->foreignId('district_id')->nullable()->constrained();
-            $table->string('address')->nullable();
-            $table->string('references')->nullable();
+            // $table->foreignId('department_id')->nullable()->constrained();
+            // $table->foreignId('city_id')->nullable()->constrained();
+            // $table->foreignId('district_id')->nullable()->constrained();
+            // $table->string('address')->nullable();
+            // $table->string('references')->nullable();
+
+            $table->json('envio')->nullable();
             $table->timestamps();
         });
     }

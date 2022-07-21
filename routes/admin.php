@@ -7,6 +7,9 @@ use App\Http\Livewire\Admin\CreateProduct;
 use App\Http\Livewire\Admin\EditProduct;
 use App\Http\Livewire\Admin\ShowCategory;
 use App\Http\Livewire\Admin\BrandComponent;
+use App\Http\Livewire\Admin\DepartmentComponent;
+use App\Http\Livewire\Admin\ShowDepartment;
+use App\Http\Livewire\Admin\CityComponent;
 
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -29,3 +32,10 @@ Route::get('categories', [CategoryController::class, 'index'])->name('admin.cate
 Route::get('categories/{category}', ShowCategory::class)->name('admin.categories.show');
 
 Route::get('brands', BrandComponent::class)->name('admin.brands.index');
+
+Route::get('departments', DepartmentComponent::class)->name('admin.departments.index');
+
+Route::get('deportments/{department}', ShowDepartment::class)->name('admin.departments.show');
+
+Route::get('cities/{city}', CityComponent::class)->name('admin.cities.show');
+
