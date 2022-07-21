@@ -10,6 +10,7 @@ use App\Http\Livewire\Admin\BrandComponent;
 use App\Http\Livewire\Admin\DepartmentComponent;
 use App\Http\Livewire\Admin\ShowDepartment;
 use App\Http\Livewire\Admin\CityComponent;
+use App\Http\Livewire\Admin\UserComponent;
 
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -38,4 +39,6 @@ Route::get('departments', DepartmentComponent::class)->name('admin.departments.i
 Route::get('deportments/{department}', ShowDepartment::class)->name('admin.departments.show');
 
 Route::get('cities/{city}', CityComponent::class)->name('admin.cities.show');
+
+Route::get('users', UserComponent::class)->name('admin.users.index');
 

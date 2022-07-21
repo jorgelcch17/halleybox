@@ -37,7 +37,7 @@
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Manage Account') }}
+                            Administrar cuenta
                         </div>
                         
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
@@ -48,9 +48,11 @@
                             Mis ordenes
                         </x-jet-dropdown-link>
 
+                        @role('admin')
                         <x-jet-dropdown-link href="{{ route('admin.index') }}">
                             Panel administrador
                         </x-jet-dropdown-link>
+                        @endrole
                         {{-- @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                 {{ __('API Tokens') }}
