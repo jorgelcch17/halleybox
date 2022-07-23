@@ -94,8 +94,8 @@
                 </a>
             </div>
         @else
-            <div class="flex flex-col items-center">
-                <x-cart />
+            <div class="flex flex-col items-center my-4">
+                <x-cart/>
                 <p class="text-lg text-gray-700 mt-4">Tu carro de compras esta vacío</p>
                 <x-button-enlace href="/" class="mt-4 px-16">
                     Seguir comprando
