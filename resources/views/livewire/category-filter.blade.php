@@ -2,7 +2,7 @@
     <div class="bg-white rounded-lg shadow-lg mb-6">
         <div class="px-6 py-2 flex justify-between items-center">
             <h1 class="font-semibold text-gray-700 uppercase">{{ $category->name }}</h1>
-            <div class="grid grid-cols-2 border border-gray-200 divide-x divide-gray-200 text-gray-500 cursor-pointer">
+            <div class="hidden md:block grid grid-cols-2 border border-gray-200 divide-x divide-gray-200 text-gray-500 cursor-pointer">
                 <i class="fa-solid fa-border-all p-3 {{ $view == 'grid' ? 'text-orange-500' : '' }}"
                     wire:click="$set('view', 'grid')"></i>
                 <i class="fas fa-list p-3 {{ $view == 'list' ? 'text-orange-500' : '' }}"
@@ -38,7 +38,7 @@
         </aside>
         <div class="md:col-span-2 lg:col-span-4">
             @if ($view == 'grid')
-                <ul class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <ul class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     @forelse ($products as $product)
                         <li class="bg-white rounded-lg shadow">
                             <article>
@@ -46,12 +46,17 @@
                                     <img class="h-48 w-full object-cover object-center"
                                         src="{{ Storage::url($product->images->first()->url) }}" alt="">
                                 </figure>
-                                <div class="py-4 px-6">
+                                <div class="py-4 px-4">
                                     <h1 class="text-lg font-semibold">
-                                        <a
+                                        <a class="truncate"
                                             href="{{ route('products.show', $product) }}">{{ Str::limit($product->name, 20) }}</a>
                                     </h1>
                                     <p class="font-bold text-neutral-700">US$ {{ $product->price }}</p>
+                                </div>
+                                <div class="mt-4 md:mt-auto p-2">
+                                    <x-danger-enlace class="w-full" href="{{ route('products.show',$product)}}">
+                                        Más información
+                                    </x-danger-enlace>
                                 </div>
                             </article>
                         </li>

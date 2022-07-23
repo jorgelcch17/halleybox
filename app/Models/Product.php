@@ -36,6 +36,10 @@ class Product extends Model
         return $this->hasMany(Size::class);
     }
 
+    public function reviews(){
+        return $this->hasMany(Review::class);
+    }
+
     // relacion uno a  muchos inversa
     public function brand(){
         return $this->belongsTo(Brand::class);
