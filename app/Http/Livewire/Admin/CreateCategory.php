@@ -126,13 +126,14 @@ class CreateCategory extends Component
             'editForm.icon' => 'required',
             'editForm.brands' => 'required',
         ];
-
+        
         if ($this->editImage){
             $rules['editImage'] = 'image|max:1024';
         }
-
+        
         $this->validate($rules);
-
+        
+        // dd('hola');
         if($this->editImage){
             Storage::delete($this->editForm['image']);
 
@@ -143,6 +144,10 @@ class CreateCategory extends Component
             $this->category->brands()->sync($this->editForm['brands']);
 
             $this->reset(['editForm', 'editImage']);
+            $this->getCategories();
+        }else{
+            $this->category->update($this->editForm);
+            $this->category->brands()->sync($this->editForm['brands']);
             $this->getCategories();
         }
     }

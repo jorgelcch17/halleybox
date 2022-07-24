@@ -40,7 +40,7 @@
             @if ($view == 'grid')
                 <ul class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     @forelse ($products as $product)
-                        <li class="bg-white rounded-lg shadow">
+                        <li class="bg-white rounded-lg shadow overflow-hidden">
                             <article>
                                 <figure>
                                     <img class="h-48 w-full object-cover object-center"

@@ -2,7 +2,7 @@
     <div class="container h-full flex items-center justify-between">
         <a href="/" class="flex items-center">
             <x-jet-application-mark class="block h-9 w-auto" />
-            <span class="font-bold text-white ml-2">ecommerce</span>
+            <span class="font-bold text-white ml-2">CURUCUSÍ</span>
         </a>
         {{-- <section class=""> --}}
         <div class="text-white space-x-4 flex items-center">

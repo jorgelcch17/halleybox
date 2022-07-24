@@ -19,7 +19,7 @@
                 @can('review', $product)
                     <div class="text-gray-700 mt-4">
                         <h2 class="font-bold text-lg">Dejar reseña</h2>
-                        <form action="{{route('reviews.store', $product)}}" method="POST">
+                        <form action="{{route('review.store', $product)}}" method="POST">
                             @csrf
                             <textarea name="comment" id="editor"></textarea>
                             <x-jet-input-error for="comment"></x-jet-input-error>

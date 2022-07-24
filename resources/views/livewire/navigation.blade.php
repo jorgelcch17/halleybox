@@ -8,7 +8,7 @@
         </a>
         <a href="/" class="flex items-center mx-6">
             <x-jet-application-mark class="block h-9 w-auto"/>
-            <span class="font-bold text-white ml-2">ecommerce</span>
+            <span class="font-bold text-white ml-2">CURUCUSÍ</span>
         </a>
 
         <div class="flex-1 hidden md:block">@livewire('search')</div>

@@ -19,7 +19,7 @@ class ProductPolicy
         }
 
         $orders = Order::where('user_id', $user->id)->select('content')->get()->map(function($orders){
-            return json_decode($order->content, true);
+            return json_decode($orders->content, true);
         });
     
         $products = $orders->collapse();

@@ -8,7 +8,7 @@
             <div class="lg:flex justify-between">
                 <div class="">
                     <h1 class="text-lg font-semibold text-gray-700">{{ $product->name}}</h1>
-                    <p class="font-bold text-gray-700">USD {{$product->price}}</p>
+                    <p class="font-bold text-gray-700">Bs {{$product->price}}</p>
                 </div>
                 <div class="flex items-center">
                     <ul class="flex text-sm">
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="mt-4 md:mt-auto mb-6">
-                <x-danger-enlace href="{{ route('products.show',$product)}}">
+                <x-danger-enlace href="{{ route('products.show', $product)}}">
                     Más información
                 </x-danger-enlace>
             </div>

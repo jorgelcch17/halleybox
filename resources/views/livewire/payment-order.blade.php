@@ -92,6 +92,10 @@
 
                 <div id="paypal-button-container"></div>
             </div>
+            <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 mt-6">
+                <p class="text-gray-700 text-sm p-2">Escribemos directamente si buscas otra forma de pago.</p>
+                <a class="bg-green-600 py-3 px-5 w-full rounded-sm text-white font-bold text-center text-xl flex items-center justify-center" href="https://wa.me/59175853156" target="_blank"><i class="fa-brands fa-whatsapp mr-2"></i> Contactanos</a>
+            </div>
         </div>
     </div>
 
@@ -106,6 +110,7 @@
                     return actions.order.create({
                         purchase_units: [{
                             amount: {
+                                currency: "BRL",
                                 value: "{{ $order->total }}" // Can reference variables or functions. Example: `value: document.getElementById('...').value`
                             }
                         }]

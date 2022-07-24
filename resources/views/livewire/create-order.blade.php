@@ -122,7 +122,7 @@
 
                             </div>
 
-                            <p>USD {{ $item->price }}</p>
+                            <p>Bs {{ $item->price }}</p>
                         </article>
                     </li>
                 @empty
