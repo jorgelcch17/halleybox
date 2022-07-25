@@ -1,18 +1,20 @@
 <x-app-layout>
     <div class="container py-8">
-        @foreach ($categories as $category)
-            @if ($category->products->count())
-                <section class="mb-6">
-                    <div class="flex justify-between items-center mb-2">
-                        <h1 class="text-lg uppercase font-semibold text-gray-700">{{ $category->name }}</h1>
-                        <a class="text-orange-500 hover:text-orange-400 hover:underline ml-2 font-semibold"
-                            href="{{ route('categories.show', $category) }}">Ver más <i
-                                class="fa-solid fa-angle-right"></i></a>
-                    </div>
-                    @livewire('category-products', ['category' => $category])
-                </section>
-            @endif
-        @endforeach
+        {{-- @if ($categories->count()) --}}
+            @foreach ($categories as $category)
+                @if ($category->products->count())
+                    <section class="mb-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h1 class="text-lg uppercase font-semibold text-gray-700">{{ $category->name }}</h1>
+                            <a class="text-orange-500 hover:text-orange-400 hover:underline ml-2 font-semibold"
+                                href="{{ route('categories.show', $category) }}">Ver más <i
+                                    class="fa-solid fa-angle-right"></i></a>
+                        </div>
+                        @livewire('category-products', ['category' => $category])
+                    </section>
+                @endif
+            @endforeach
+        {{-- @endif --}}
     </div>
 
     @push('script')
