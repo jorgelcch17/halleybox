@@ -6,7 +6,7 @@
             </svg>
             <span class="select-none text-sm hidden md:block">Categorias</span>
         </a>
-        <a href="/" class="flex items-center mx-6">
+        <a href="/" class="flex items-center md:mx-6">
             {{-- <x-jet-application-mark class="block h-9 w-auto"/> --}}
             <img src="https://img.icons8.com/material-outlined/24/ffffff/asteroid.png"/>
             <span class="font-bold text-white ml-2">HALLEY<span class="text-sky-500">BOX</span></span>
