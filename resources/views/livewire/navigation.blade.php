@@ -1,4 +1,4 @@
-<header x-data="dropdown()" class="bg-neutral-700 sticky top-0" style="z-index: 900">
+<header x-data="dropdown()" class="bg-neutral-800 sticky top-0" style="z-index: 900">
     <div class="container flex items-center h-16 justify-between md:justify-start">
         <a :class="{'bg-opacity-100 text-orange-500': open}" x-on:click="show()" class="flex flex-col items-center justify-center px-6 md:px-4 order-last md:order-first bg-white bg-opacity-25 text-white cursor-pointer fornt-semibold h-full">
             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -7,8 +7,9 @@
             <span class="select-none text-sm hidden md:block">Categorias</span>
         </a>
         <a href="/" class="flex items-center mx-6">
-            <x-jet-application-mark class="block h-9 w-auto"/>
-            <span class="font-bold text-white ml-2">CURUCUSÍ</span>
+            {{-- <x-jet-application-mark class="block h-9 w-auto"/> --}}
+            <img src="https://img.icons8.com/material-outlined/24/ffffff/asteroid.png"/>
+            <span class="font-bold text-white ml-2">HALLEY<span class="text-sky-500">BOX</span></span>
         </a>
 
         <div class="flex-1 hidden md:block">@livewire('search')</div>

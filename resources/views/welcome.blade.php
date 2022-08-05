@@ -6,7 +6,7 @@
                     <section class="mb-6">
                         <div class="flex justify-between items-center mb-2">
                             <h1 class="text-lg uppercase font-semibold text-gray-700">{{ $category->name }}</h1>
-                            <a class="text-orange-500 hover:text-orange-400 hover:underline ml-2 font-semibold"
+                            <a class="text-red-500 hover:text-orange-400 hover:underline ml-2 font-semibold"
                                 href="{{ route('categories.show', $category) }}">Ver más <i
                                     class="fa-solid fa-angle-right"></i></a>
                         </div>
