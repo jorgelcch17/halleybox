@@ -34,6 +34,7 @@
 </head>
 
 <body class="font-sans antialiased">
+    <h1 class="hidden">HALLEYBOX</h1>
     <x-jet-banner />
 
     <div class="min-h-screen bg-gray-200">
