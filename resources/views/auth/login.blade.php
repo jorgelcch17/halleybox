@@ -1,7 +1,11 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+               <div class="flex flex-col items-center">
+                    <img class="" src="https://img.icons8.com/material-outlined/48/000000/asteroid.png"/>
+                    <span class="font-bold text-gray-800 ml-2">HALLEY<span class="text-sky-500">BOX</span></span>
+                    {{-- <x-jet-authentication-card-logo /> --}}
+               </div>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
