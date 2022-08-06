@@ -1,20 +1,20 @@
 <div wire:init="loadPosts">
     @if (count($products))
-        <div class="glider-contain relative">
+        <div class="glider-contain">
             <ul class="glider-{{ $category->id }}">
                 @foreach ($products as $product)
                     <li class="rounded-lg {{ $loop->last ? '' : 'mr-2 sm:mr-4' }}">
                         <article>
-                            <figure>
+                            <figure class="aspect-square overflow-hidden">
                                 <a href="{{ route('products.show', $product) }}">
-                                    <img class="w-full aspect-square object-cover object-center"
+                                    <img class="w-full object-cover object-center"
                                         src="{{ Storage::url($product->images->first()->url) }}" alt="">
                                 </a>
                             </figure>
                             <div class="px-1 py-2 flex flex-col justify-between">
                                 <h3 class="font-semibold font-sans">
                                     {{-- <a href="{{ route('products.show', $product)}}">{{ Str::limit($product->name, 20) }}</a> --}}
-                                    <a href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
+                                    <a class="hover:underline" href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
                                 </h3>
                                 <p class="text-neutral-700">Bs {{ $product->price }}</p>
                             </div>
