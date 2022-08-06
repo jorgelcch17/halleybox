@@ -61,11 +61,25 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function photo_url(){
+        $profile = $this->socialProfile->first();
+        if ($profile) {
+            return $profile->social_avatar;
+        }else{
+            return $this->profile_photo_url;
+        }
+    }
+
     public function orders(){
         return $this->hasMany(Order::class);
     }
 
     public function reviews(){
         return $this->hasMany(Review::class);
+    }
+    //realacion 1 a muchos
+
+    public function socialProfile(){
+        return $this->hasMany(SocialProfile::class);
     }
 }

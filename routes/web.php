@@ -10,9 +10,10 @@ use App\Http\Controllers\ReviewController;
 use App\Http\Livewire\ShoppingCart;
 use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\PaymentOrder;
+use App\Http\Controllers\Auth\LoginController;
 use App\Models\Order;
 
-Route::get('/', WelcomeController::class);
+Route::get('/', WelcomeController::class)->name('home');
 
 Route::get('search', SearchController::class)->name('search');
 
@@ -33,3 +34,8 @@ Route::middleware(['auth'])->group(function(){
 });
 
 Route::post('reviews/{product}', [ReviewController::class, 'store'])->name('review.store');
+
+Route::get('login/{driver}', [LoginController::class, 'redirectToProvider']);
+// Route::get('login/{driver}', 'Auth\LoginController@redirectToProvider');
+Route::get('login/{driver}/callback', [LoginController::class, 'handleProviderCallback']);
+// Route::get('login/{driver}/callback', 'Auth\LoginController@handleProviderCallback');
