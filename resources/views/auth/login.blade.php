@@ -1,4 +1,14 @@
 <x-guest-layout>
+    @if (session('info'))
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold mr-4">que paso!</strong>
+            <span class="block sm:inline">{{session('info')}}</span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+            </span>
+        </div>
+    @endif
+
     <x-jet-authentication-card>
         <x-slot name="logo">
                <div class="flex flex-col items-center">
@@ -35,7 +45,20 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+            <p class="text-center mt-3 mb-2">- o -</p>
+           <div class="flex flex-col">
+                {{-- <a class="bg-neutral-200 rounded-sm text-center p-2 mb-2" href="">Inicia sesión con google</a>
+                <a class="bg-blue-700 text-center rounded-sm p-2 text-white" href="">Inicia sesión con Facebook</a> --}}
+                <a href="{{url('login/facebook')}}" class="text-center text-white bg-[#0099ff] hover:bg-[#0099ff]/90 focus:ring-4 focus:outline-none focus:ring-[#0099ff]/50 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center dark:focus:ring-[#0099ff]/55 mr-2 mb-2">
+                    <img src="https://img.icons8.com/color/26/000000/facebook-new.png"/>
+                    Inicia sesión con Facebook
+                </a>
 
+                <a href="{{url('login/google')}}" class="text-gray-700  bg-[#d2d5db] hover:bg-[#d2d5db]/90 focus:ring-4 focus:outline-none focus:ring-[#d2d5db]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#d2d5db]/55 mr-2 mb-2">
+                    <img class="mr-2" src="https://img.icons8.com/color/24/000000/google-logo.png"/>
+                    Inicia sesión con Google
+                </a>
+           </div>
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
@@ -46,7 +69,10 @@
                 <x-jet-button class="ml-4">
                     {{ __('Log in') }}
                 </x-jet-button>
+                
             </div>
+
+
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
