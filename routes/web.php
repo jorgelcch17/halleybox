@@ -33,3 +33,11 @@ Route::middleware(['auth'])->group(function(){
 });
 
 Route::post('reviews/{product}', [ReviewController::class, 'store'])->name('review.store');
+
+Route::get('terminos-y-condiciones', function(){
+    return view('terminosycondiciones');
+})->name('terminosycondiciones');
+
+Route::get('politicas-de-privacidad', function(){
+    return view('politicasdeprivacidad');
+})->name('politicasdeprivacidad');
