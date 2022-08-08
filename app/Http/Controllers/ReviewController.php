@@ -12,6 +12,8 @@ class ReviewController extends Controller
             'comment' => 'required|min:5',
             'rating' => 'required|integer|min:1|max:5'
         ]);
+        
+        // dd('hola mundo');
 
         $product->reviews()->create([
             'comment' => $request->comment,

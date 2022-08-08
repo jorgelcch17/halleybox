@@ -2,18 +2,18 @@
     <p class="text-gray-700 mb-4"><span class="font-semibold text-lg">Stock disponible:</span> {{ $quantity }}</p>
     <div class="flex">
         <div class="mr-4">
-            <x-jet-secondary-button wire:click="decrement" x-bind:disabled="$wire.qty <= 1" wire:loading.attr="disabled"
+            <x-jet-secondary-button class="shadow-md" wire:click="decrement" x-bind:disabled="$wire.qty <= 1" wire:loading.attr="disabled"
                 wire:target="decrement">
                 -
             </x-jet-secondary-button>
             <span class="mx-2 text-gray-700">{{ $qty }}</span>
-            <x-jet-secondary-button wire:click="increment" x-bind:disabled="$wire.qty >= $wire.quantity"
+            <x-jet-secondary-button class="shadow-md" wire:click="increment" x-bind:disabled="$wire.qty >= $wire.quantity"
                 wire:loading.attr="disabled" wire:target="increment">
                 +
             </x-jet-secondary-button>
         </div>
         <div class="flex-1">
-            <x-button color="orange" x-bind:disabled="$wire.qty > $wire.quantity" class="w-full" wire:click="addItem" wire:loading.attr="disabled" wire:target="addItem">
+            <x-button color="orange" x-bind:disabled="$wire.qty > $wire.quantity" class="w-full shadow-md" wire:click="addItem" wire:loading.attr="disabled" wire:target="addItem">
                 Agregar al carrito de compras
             </x-button>
         </div>

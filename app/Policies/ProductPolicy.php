@@ -18,7 +18,7 @@ class ProductPolicy
             return false;
         }
 
-        $orders = Order::where('user_id', $user->id)->select('content')->get()->map(function($orders){
+        $orders = Order::where('user_id', $user->id)->where('status', 2)->select('content')->get()->map(function($orders){
             return json_decode($orders->content, true);
         });
     
