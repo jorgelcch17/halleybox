@@ -39,40 +39,39 @@
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
             </div>
 
-            <div class="block mt-4">
+            {{-- <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <x-jet-checkbox id="remember_me" name="remember" />
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
-            </div>
-            <p class="text-center mt-3 mb-2">- o -</p>
-           <div class="flex flex-col">
-                {{-- <a class="bg-neutral-200 rounded-sm text-center p-2 mb-2" href="">Inicia sesión con google</a>
-                <a class="bg-blue-700 text-center rounded-sm p-2 text-white" href="">Inicia sesión con Facebook</a> --}}
-                <a href="{{url('login/facebook')}}" class="text-center text-white bg-[#0099ff] hover:bg-[#0099ff]/90 focus:ring-4 focus:outline-none focus:ring-[#0099ff]/50 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center dark:focus:ring-[#0099ff]/55 mr-2 mb-2">
-                    <img src="https://img.icons8.com/color/26/000000/facebook-new.png"/>
-                    Inicia sesión con Facebook
-                </a>
-
-                <a href="{{url('login/google')}}" class="text-gray-700  bg-[#d2d5db] hover:bg-[#d2d5db]/90 focus:ring-4 focus:outline-none focus:ring-[#d2d5db]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#d2d5db]/55 mr-2 mb-2">
-                    <img class="mr-2" src="https://img.icons8.com/color/24/000000/google-logo.png"/>
-                    Inicia sesión con Google
-                </a>
-           </div>
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-jet-button class="ml-4">
+            </div> --}}
+            <div class="flex flex-col items-center justify-end mt-6">
+                <x-jet-button class="w-full py-3 inline-flex justify-center">
                     {{ __('Log in') }}
                 </x-jet-button>
+                @if (Route::has('password.request'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 mt-4" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a>
+                @endif
+                
                 
             </div>
-
-
         </form>
+        <p class="text-center mt-3 mb-2">- o -</p>
+        <div class="flex flex-col pt-2">
+             {{-- <a class="bg-neutral-200 rounded-sm text-center p-2 mb-2" href="">Inicia sesión con google</a>
+             <a class="bg-blue-700 text-center rounded-sm p-2 text-white" href="">Inicia sesión con Facebook</a> --}}
+             <a href="{{url('login/facebook')}}" class="justify-center text-white bg-[#0099ff] hover:bg-[#0099ff]/90 focus:ring-4 focus:outline-none focus:ring-[#0099ff]/50 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-center dark:focus:ring-[#0099ff]/55 mb-2">
+                 <img class="mr-2" src="https://img.icons8.com/color/26/000000/facebook-new.png"/>
+                 Inicia sesión con Facebook
+             </a>
+
+             <a href="{{url('login/google')}}" class="text-gray-700  bg-[#d2d5db] hover:bg-[#d2d5db]/90 focus:ring-4 focus:outline-none focus:ring-[#d2d5db]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-center dark:focus:ring-[#d2d5db]/55 mb-2">
+                 <img class="mr-2" src="https://img.icons8.com/color/24/000000/google-logo.png"/>
+                 Inicia sesión con Google
+             </a>
+        </div>
+        <p class="text-center mt-4 text-sm">¿No tienes cuenta? <a class="text-blue-500 hover:underline" href="register">Regístrate</a></p>
     </x-jet-authentication-card>
 </x-guest-layout>

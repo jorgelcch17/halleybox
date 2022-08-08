@@ -31,9 +31,7 @@
         <div class="flex-1">
             <x-button x-bind:disabled="!$wire.quantity" color="orange" class="w-full" wire:click="addItem"
                 wire:loading.attr="disabled" wire:target="addItem">
-                <i class="fa-solid fa-trash-can"></i>
-                <span class="hidden md:inline ml-2">AGREGAR AL CARRITO DE COMPRAS</span>
-                <span class="hidden sm:inline md:hidden ml-2">AGREGAR</span>
+                AGREGAR AL CARRITO DE COMPRAS
             </x-button>
         </div>
     </div>
