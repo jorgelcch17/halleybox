@@ -97,7 +97,7 @@
             <p class="text-sm text-gray-700 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore iste
                 ratione aliquid. Cumque, illo quam
                 quod, alias necessitatibus in id aspernatur enim reiciendis hic minima saepe ea impedit dolorem a! <a
-                    href="" class="font-semibold text-orange-600">Políticas de privacidad</a></p>
+                    href="{{ route('politicasdeprivacidad') }}" target="_blank" class="font-semibold text-orange-600">Políticas de privacidad</a></p>
         </div>
 
     </div>
@@ -147,7 +147,7 @@
                         @if($envio_type == 1 || $shipping_cost == 0)
                             Gratis
                         @else
-                            {{ $shipping_cost }} Bs
+                            {{ number_format($shipping_cost,2,'.',',') }} Bs
                         @endif
                     </span>
                 </p>
@@ -158,7 +158,7 @@
                         @if($envio_type == 1)
                             {{ Cart::subtotal() }} Bs
                         @else
-                            {{ Cart::subtotal() + $shipping_cost }} Bs
+                            {{ number_format(Cart::subtotalFloat() + $shipping_cost, 2 , '.', ',') }} Bs
                         @endif
                     </span>
                 </p>

@@ -32,7 +32,7 @@
                                 
                             </div>
                             
-                            <p>Bs {{$item->price}}</p>
+                            <p>Bs {{ number_format($item->price, 2,'.',',') }}</p>
                         </article>
                     </li>
                 @empty

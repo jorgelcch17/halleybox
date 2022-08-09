@@ -122,7 +122,7 @@
                                     </span>
                                     <br>
                                     <span class="text-sm">
-                                        {{ $order->total }} Bs
+                                        {{ number_format($order->total, 2,'.',',') }} Bs
                                     </span>
                                 </div>
 

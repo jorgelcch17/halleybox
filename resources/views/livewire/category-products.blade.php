@@ -16,7 +16,7 @@
                                     {{-- <a href="{{ route('products.show', $product)}}">{{ Str::limit($product->name, 20) }}</a> --}}
                                     <a class="hover:underline" href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
                                 </h3>
-                                <p class="text-neutral-700">Bs {{ $product->price }}</p>
+                                <p class="text-neutral-700">Bs {{ number_format($product->price, 2,'.',',') }}</p>
                             </div>
                         </article>
                     </li>

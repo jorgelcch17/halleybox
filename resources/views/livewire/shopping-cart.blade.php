@@ -58,7 +58,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm text-gray-500">
-                                    <span>Bs {{ $item->price }}</span>
+                                    <span>Bs {{ number_format($item->price, 2, '.', ',') }}</span>
                                     <a class="ml-6 cursor-pointer hover:text-red-600"
                                         wire:click="delete('{{ $item->rowId }}')"
                                         wire:loading.class="text-red-600 opacity-25"
@@ -80,7 +80,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 <div class="text-sm text-gray-500">
-                                    Bs {{ $item->price * $item->qty }}
+                                    Bs {{ number_format($item->price * $item->qty, 2, '.', ',') }}
                                 </div>
                             </td>
                         </tr>
@@ -110,7 +110,7 @@
                 <div>
                     <p class="text-gray-700">
                         <span class="font-bold text-lg">Total:</span>
-                        Bs {{ Cart::subTotal() }}
+                        Bs {{ Cart::subtotal() }}
                     </p>
                 </div>
                 <div>

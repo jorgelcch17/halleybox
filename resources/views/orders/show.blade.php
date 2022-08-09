@@ -83,7 +83,7 @@
                     @foreach ($items as $item)
                         <tr>
                             <td>
-                                <div class="flex">
+                                <div class="flex items-center">
                                     <img class="h-15 w-20 object-cover mr-4" src="{{ $item->options->image }}"
                                         alt="">
                                     <article>
@@ -100,13 +100,13 @@
                                 </div>
                             </td>
                             <td class="text-center">
-                                {{ $item->price }} Bs
+                                {{ number_format($item->price, 2,'.',',') }} Bs
                             </td>
                             <td class="text-center">
                                 {{ $item->qty }}
                             </td>
                             <td class="text-center">
-                                {{ $item->price * $item->qty }}
+                                {{ number_format($item->price * $item->qty,2,'.',',') }}
                             </td>
                         </tr>
                     @endforeach

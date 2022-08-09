@@ -13,7 +13,7 @@
                             <p class="text-sm">Los productos deben ser recogidos en tienda</p>
                             <p class="text-sm">Calle falsa 123</p>
                         @else
-                            <p class="text-sm">Los productos seran enviados a:</p>
+                            <p class="text-sm font-bold">Los productos seran enviados a:</p>
                             <p class="text-sm">{{ $envio->address }}</p>
                             <p>{{ $envio->department }} - {{ $envio->city}} -
                                 {{ $envio->district }}</p>
@@ -21,8 +21,8 @@
                     </div>
                     <div>
                         <p class="text-lg font-semibold uppercase">Datos de contacto</p>
-                        <p class="text-sm">Persona que recibirá el producto: {{ $order->contact }}</p>
-                        <p class="text-sm">Telefono de contacto: {{ $order->phone }}</p>
+                        <p class="text-sm"><span class="font-bold">Persona que recibirá el producto:</span> {{ $order->contact }}</p>
+                        <p class="text-sm"><span class="font-bold">Telefono de contacto:</span> {{ $order->phone }}</p>
                     </div>
                 </div>
             </div>
@@ -58,13 +58,13 @@
                                     </div>
                                 </td>
                                 <td class="text-center">
-                                    {{ $item->price }} Bs
+                                    {{ number_format($item->price, 2,'.',',') }} Bs
                                 </td>
                                 <td class="text-center">
                                     {{ $item->qty }}
                                 </td>
                                 <td class="text-center">
-                                    {{ $item->price * $item->qty }}
+                                    {{ number_format($item->price * $item->qty,2,'.',',') }}
                                 </td>
                             </tr>
                         @endforeach
@@ -79,13 +79,13 @@
                     <img class="h-8" src="{{ asset('img/pagos.png') }}" alt="">
                     <div class="text-gray-700">
                         <p class="text-sm font-semibold">
-                            Subtotal: {{ $order->total - $order->shipping_cost }} Bs
+                            Subtotal: {{ number_format($order->total - $order->shipping_cost , 2,'.',',') }} Bs
                         </p>
                         <p class="text-sm font-semibold">
-                            Envío: {{ $order->shipping_cost }} Bs
+                            Envío: {{ number_format($order->shipping_cost, 2, '.',',') }} Bs
                         </p>
                         <p class="text-lg font-semibold uppercase">
-                            Pago: {{ $order->total }} Bs
+                            Pago: {{ number_format($order->total, 2,'.',',') }} Bs
                         </p>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                     return actions.order.create({
                         purchase_units: [{
                             amount: {
-                                currency: "BRL",
+                                currency: "USD",
                                 value: "{{ $order->total }}" // Can reference variables or functions. Example: `value: document.getElementById('...').value`
                             }
                         }]
