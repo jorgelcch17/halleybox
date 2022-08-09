@@ -11160,6 +11160,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _fortawesome_fontawesome_free_js_all__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_free_js_all__WEBPACK_IMPORTED_MODULE_1__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./categorias */ "./resources/js/categorias.js");
+
+__webpack_require__(/*! ./preguntasFrecuentes */ "./resources/js/preguntasFrecuentes.js");
+
 
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
@@ -11195,6 +11199,69 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/categorias.js":
+/*!************************************!*\
+  !*** ./resources/js/categorias.js ***!
+  \************************************/
+/***/ (() => {
+
+var categorias = document.querySelectorAll('#categorias .categoria');
+var contenedorPreguntas = document.querySelectorAll('.contenedor-preguntas');
+var categoriaActiva = null;
+categorias.forEach(function (categoria) {
+  categoria.addEventListener('click', function (e) {
+    categorias.forEach(function (elemento) {
+      elemento.classList.remove('activa');
+    });
+    e.currentTarget.classList.toggle('activa');
+    categoriaActiva = categoria.dataset.categoria; // Activamos el contenedor de preguntas que corresponde
+
+    contenedorPreguntas.forEach(function (contenedor) {
+      if (contenedor.dataset.categoria === categoriaActiva) {
+        contenedor.classList.add('activo');
+      } else {
+        contenedor.classList.remove('activo');
+      }
+    });
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/preguntasFrecuentes.js":
+/*!*********************************************!*\
+  !*** ./resources/js/preguntasFrecuentes.js ***!
+  \*********************************************/
+/***/ (() => {
+
+var preguntas = document.querySelectorAll('.preguntas .contenedor-pregunta');
+preguntas.forEach(function (pregunta) {
+  pregunta.addEventListener('click', function (e) {
+    e.currentTarget.classList.toggle('activa');
+    var respuesta = pregunta.querySelector('.respuesta');
+    var alturaRealRespuesta = respuesta.scrollHeight;
+
+    if (!respuesta.style.maxHeight) {
+      // Si esta vacio el maxHeight entonces ponemos un valor.
+      respuesta.style.maxHeight = alturaRealRespuesta + 'px';
+    } else {
+      respuesta.style.maxHeight = null;
+    } // [Opcional] Reiniciamos las demas preguntas
+
+
+    preguntas.forEach(function (elemento) {
+      // Solamente queremos ejecutar el codigo para las preguntas que no 
+      // sean la pregunta a la que le dimos click.
+      if (pregunta !== elemento) {
+        elemento.classList.remove('activa');
+        elemento.querySelector('.respuesta').style.maxHeight = null;
+      }
+    });
+  });
+});
 
 /***/ }),
 

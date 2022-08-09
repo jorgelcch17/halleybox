@@ -44,6 +44,10 @@ Route::get('politicas-de-privacidad', function(){
     return view('politicasdeprivacidad');
 })->name('politicasdeprivacidad');
 
+Route::get('preguntas-frecuentes', function(){
+    return view('preguntasfrecuentes');
+})->name('preguntasfrecuentes');
+
 Route::get('login/{driver}', [LoginController::class, 'redirectToProvider']);
 // Route::get('login/{driver}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{driver}/callback', [LoginController::class, 'handleProviderCallback']);
