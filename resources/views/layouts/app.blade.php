@@ -11,26 +11,31 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
+    
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/glide.core.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/glide.theme.min.css') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ asset('js/glide.min.js') }}"></script>
     {{-- <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.css"
         integrity="sha512-YM6sLXVMZqkCspZoZeIPGXrhD9wxlxEF7MzniuvegURqrTGV2xTfqq1v9FJnczH+5OGFl5V78RgHZGaK34ylVg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('vendor/FlexSlider/flexslider.css') }}">
 
+    {{-- glidejs --}}
+    
+    
     @livewireStyles
-
+    
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.js"
-        integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    integrity="sha512-tHimK/KZS+o34ZpPNOvb/bTHZb6ocWFXCtdGqAlWYUcz+BGHbNbHMKvEHUyFxgJhQcEO87yg5YqaJvyQgAEEtA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ asset('vendor/FlexSlider/jquery.flexslider-min.js') }}"></script>
-
 </head>
 
 <body class="font-sans antialiased">
@@ -75,7 +80,6 @@
         }
     </script>
     @stack('script')
-    
 </body>
 
 </html>

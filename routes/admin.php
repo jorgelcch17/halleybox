@@ -11,6 +11,7 @@ use App\Http\Livewire\Admin\DepartmentComponent;
 use App\Http\Livewire\Admin\ShowDepartment;
 use App\Http\Livewire\Admin\CityComponent;
 use App\Http\Livewire\Admin\UserComponent;
+use App\Http\Livewire\Admin\ShowBanner;
 
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -23,6 +24,8 @@ Route::get('products/create', CreateProduct::class)->name('admin.products.create
 Route::get('products/{product}/edit', EditProduct::class)->name('admin.products.edit');
 
 Route::post('products/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');
+
+Route::get('banners', ShowBanner::class)->name('admin.banners.show');
 
 Route::get('orders', [OrderController::class, 'index'])->name('admin.orders.index');
 
@@ -41,4 +44,3 @@ Route::get('deportments/{department}', ShowDepartment::class)->name('admin.depar
 Route::get('cities/{city}', CityComponent::class)->name('admin.cities.show');
 
 Route::get('users', UserComponent::class)->name('admin.users.index');
-

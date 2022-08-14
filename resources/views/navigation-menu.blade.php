@@ -18,6 +18,9 @@
                     <x-jet-nav-link href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
                         Ordenes
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{route('admin.banners.show')}}" :active="request()->routeIs('admin.banners.*')">
+                        Banners
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.*')">
                         Categorias
                     </x-jet-nav-link>
@@ -157,6 +160,9 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{route('admin.orders.index')}}" :active="request()->routeIs('admin.orders.*')">
                 Ordenes
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{route('admin.banners.show')}}" :active="request()->routeIs('admin.banners.*')">
+                Banners
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{route('admin.categories.index')}}" :active="request()->routeIs('admin.categories.*')">
                 Categories
