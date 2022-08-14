@@ -1,5 +1,5 @@
 <x-app-layout>
-	<main>
+	<div class="max-w-7xl mx-auto px-2 sm:px-12 lg:px-32">
 		<h1 class="titulo">Preguntas Frecuentes</h1>
 		<div class="categorias" id="categorias">
 			<div class="categoria activa" data-categoria="metodos-pago">
@@ -71,7 +71,9 @@
 			</div>
 
 		</div>
-    <main>
-    <script src="js/categorias.js"></script>
+    <div>
+    @push('script')
+	<script src="js/categorias.js"></script>
 	<script src="js/preguntasFrecuentes.js"></script>
+	@endpush
 </x-app-layout>
