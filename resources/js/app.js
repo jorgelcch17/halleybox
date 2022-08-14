@@ -1,4 +1,6 @@
 require('./bootstrap');
+require('./categorias');
+require('./preguntasFrecuentes');
 
 import Alpine from 'alpinejs';
 

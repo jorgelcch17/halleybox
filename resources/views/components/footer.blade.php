@@ -20,7 +20,8 @@
         <p class="text-white text-center mt-2">
             <a class="hover:text-sky-500" href="#">Contáctenos </a>|
             <a class="hover:text-sky-500" href="{{ route('terminosycondiciones') }}">Términos y condiciones </a>|
-            <a class="hover:text-sky-500" href="{{ route('politicasdeprivacidad') }}">Políticas de privacidad</a>
+            <a class="hover:text-sky-500" href="{{ route('politicasdeprivacidad') }}">Políticas de privacidad</a> |
+            <a class="hover:text-sky-500" href="{{ route('preguntasfrecuentes') }}">Preguntas frecuentes</a>
         </p>
     </div>
 </div>
