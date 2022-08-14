@@ -57,11 +57,19 @@ class ShowBanner extends Component
         ]);
         $url = Storage::put('banners', $this->file);
         $last = Banner::orderBy('order', 'desc')->first();
-        Banner::create([
-            'url' => $url,
-            'redirect_to'=> $this->link,
-            'order' => $last->order+1,
-        ]);
+        if($last){
+            Banner::create([
+                'url' => $url,
+                'redirect_to'=> $this->link,
+                'order' => $last->order+1,
+            ]);
+        }else{
+            Banner::create([
+                'url' => $url,
+                'redirect_to'=> $this->link,
+                'order' => 1,
+            ]);
+        }
         $this->rand = rand();
         $this->reset('link');
         $this->getBanners();
