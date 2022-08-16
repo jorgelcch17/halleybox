@@ -8,7 +8,8 @@
         </a>
         <a href="/" class="flex items-center md:mx-6">
             {{-- <x-jet-application-mark class="block h-9 w-auto"/> --}}
-            <img src="https://img.icons8.com/material-outlined/24/ffffff/asteroid.png"/>
+            {{-- <img src="https://img.icons8.com/material-outlined/24/ffffff/asteroid.png"/> --}}
+            <img class="h-6 w-6" src="{{ asset('img/logo-blanco.svg')}} " alt="logo de halleybox">
             <span class="font-bold text-white ml-2">HALLEY<span class="text-sky-500">BOX</span></span>
         </a>
 

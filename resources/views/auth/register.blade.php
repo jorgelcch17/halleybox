@@ -1,11 +1,12 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <div class="flex flex-col items-center">
-                <img class="" src="https://img.icons8.com/material-outlined/48/000000/asteroid.png"/>
+            <a href="/" class="flex flex-col items-center">
+                {{-- <img class="" src="https://img.icons8.com/material-outlined/48/000000/asteroid.png"/> --}}
+                <img class="h-12 w-12" src="{{ asset('img/logo-negro.svg')}} " alt="logo de halleybox">
                 <span class="font-bold text-neutral-800 ml-2">HALLEY<span class="text-sky-500">BOX</span></span>
                 {{-- <x-jet-authentication-card-logo /> --}}
-           </div>
+            </a>
             {{-- <x-jet-authentication-card-logo /> --}}
         </x-slot>
 
