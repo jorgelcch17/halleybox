@@ -3270,10 +3270,6 @@ main {
     height: 24rem;
   }
 
-  .md\:w-56 {
-    width: 14rem;
-  }
-
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

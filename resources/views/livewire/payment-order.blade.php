@@ -111,7 +111,7 @@
                         purchase_units: [{
                             amount: {
                                 currency: "USD",
-                                value: "{{ $order->total }}" // Can reference variables or functions. Example: `value: document.getElementById('...').value`
+                                value: "{{ number_format($order->total/7, 2, '.',',') }}" // Can reference variables or functions. Example: `value: document.getElementById('...').value`
                             }
                         }]
                     });
