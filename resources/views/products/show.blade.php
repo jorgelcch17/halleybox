@@ -24,7 +24,8 @@
                         reseñas</a>
                 </div>
 
-                <p class="text-2xl font-semibold text-neutral-700 my-4">Bs {{ number_format($product->price, 2,'.',',') }}</p>
+                <p class="text-2xl font-semibold text-neutral-700 my-4">Bs
+                    {{ number_format($product->price, 2, '.', ',') }}</p>
 
                 <div class="bg-white rounded-lg shadow-md mb-6">
                     <div class="flex p-4 items-center">

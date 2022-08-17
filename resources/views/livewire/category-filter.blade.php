@@ -1,13 +1,13 @@
 <div>
     <div class="bg-white rounded-lg shadow-lg mb-6">
-        <div class="px-6 py-2 flex justify-between items-center">
+        <div class="px-6 py-2 flex justify-between items-center" x-data>
             <h1 class="font-semibold text-gray-700 uppercase">{{ $category->name }}</h1>
             <div
-                class="hidden md:block grid grid-cols-2 border border-gray-200 divide-x divide-gray-200 text-gray-500 cursor-pointer">
+                class="hidden md:grid md:grid-cols-2 border border-gray-200 divide-x divide-gray-200 text-gray-500 cursor-pointer">
                 <i class="fa-solid fa-border-all p-3 {{ $view == 'grid' ? 'text-orange-500' : '' }}"
-                    wire:click="$set('view', 'grid')"></i>
+                    x-on:click="$wire.set('view','grid')"></i>
                 <i class="fas fa-list p-3 {{ $view == 'list' ? 'text-orange-500' : '' }}"
-                    wire:click="$set('view', 'list')"></i>
+                x-on:click="$wire.set('view','list')"></i>
             </div>
         </div>
     </div>
@@ -89,7 +89,7 @@
             @else
                 <ul>
                     @forelse ($products as $product)
-                        <x-product-list :product="$product" />
+                        <x-product-list :product="$product" :stars="$product->reviews->avg('rating')"/>
                     @empty
                         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
                             role="alert">
@@ -104,4 +104,15 @@
             </div>
         </div>
     </div>
+
+    @push('script')
+        <script>
+            //funcion que al llegar a un ancho de pantalla de 900px o menos, cambia la vista de productos a grid
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 768) {
+                    Livewire.emitTo('category-filter','setGrid');
+                }
+            })
+        </script>
+    @endpush
 </div>

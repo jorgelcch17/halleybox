@@ -13,9 +13,11 @@ class CategoryFilter extends Component
 {
     use withPagination;
 
+    protected $listeners = ['setGrid'];
+
     public $category, $subcategoria='', $marca='';
 
-    public $view = "grid";
+    public $view = 'grid';
 
     protected $queryString = ['subcategoria', 'marca'];
 
@@ -29,6 +31,10 @@ class CategoryFilter extends Component
    
     public function updatedMarca(){
         $this->resetPage();
+    }
+
+    public function setGrid(){
+        $this->view = 'grid';
     }
 
     public function render()

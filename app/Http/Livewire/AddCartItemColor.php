@@ -52,6 +52,7 @@ class AddCartItemColor extends Component
     $this->reset('qty');
 
     $this->emitTo('dropdown-cart', 'render');
+    $this->emitTo('cart-mobil', 'render');
     }
 
     public function render()

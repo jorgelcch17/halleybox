@@ -1,6 +1,6 @@
 <header x-data="dropdown()" class="bg-neutral-800 sticky top-0" style="z-index: 900">
     <div class="container flex items-center h-16 justify-between md:justify-start">
-        <a :class="{'bg-opacity-100 text-orange-500': open}" x-on:click="show()" class="flex flex-col items-center justify-center px-6 md:px-4 order-last md:order-first bg-white bg-opacity-25 text-white cursor-pointer fornt-semibold h-full">
+        <a :class="{'bg-opacity-100 text-neutral-700': open}" x-on:click="show()" class="flex flex-col items-center justify-center px-6 md:px-4 order-last md:order-first bg-white bg-opacity-25 text-white cursor-pointer fornt-semibold h-full">
             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -102,12 +102,15 @@
             <div x-on:click.away="close()" class="grid grid-cols-4 h-full relative">
                 <ul class="bg-white">
                     @foreach($categories as $category)
-                        <li class="navigation-link text-neutral-500 hover:bg-orange-500 hover:text-white">
-                            <a href="{{ route('categories.show', $category)}}" class="py-2 px-4 text-sm flex items-center">
-                                <span class="flex justify-center w-9">
-                                    {!!$category->icon!!}
-                                </span>
-                                {{$category->name}}
+                        <li class="navigation-link text-neutral-500 hover:bg-gray-100 hover:text-neutral-700 transition duration-300">
+                            <a href="{{ route('categories.show', $category)}}" class="py-2 px-4 text-sm flex items-center justify-between">
+                                <div class="flex justify-center">
+                                    <span class="flex justify-center w-9">
+                                        {!!$category->icon!!}
+                                    </span>
+                                    {{$category->name}}
+                                </div>
+                                <i class="fa-solid fa-angle-right"></i>
                             </a>
 
                             <div class="navigation-submenu bg-gray-100 absolute h-full w-3/4 right-0 top-0 hidden">
