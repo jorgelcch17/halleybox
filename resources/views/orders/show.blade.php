@@ -1,41 +1,114 @@
 <x-app-layout>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="bg-white rounded-lg shadow-lg px-12 py-8 mb-6 flex items-center">
-            <div class="relative">
-                <div
-                    class="{{ $order->status >= 2 && $order->status != 5 ? 'bg-blue-400' : 'bg-gray-400' }} rounded-full h-12 w-12 flex items-center justify-center">
-                    <i class="fas fa-check text-white"></i>
-                </div>
-                <div class="absolute -left-1.5 mt-0.5">
-                    <p>Recibido</p>
-                </div>
+        <div class="bg-white rounded-lg shadow-lg">
+            <p class="py-2 px-6 font-bold">Estado de la orden:</p>
+            @if ($order->status == 1)
+            <div class="px-12 pb-8 mb-6">
+                <P class="text-center font-bold text-2xl text-orange-400">PENDIENTE DE PAGO</P>
             </div>
+            @elseif($order->status == 5)
+            <div class="px-12 pb-8 mb-6">
+                <P class="text-center font-bold text-2xl text-red-600">ANULADO</P>
+            </div>
+            
+            @else
+            <div class="flex items-center px-12 pb-8 mb-6">
+                <div class="relative">
+                    @if ($order->status >= 4)
+                        <div
+                            class="{{ $order->status == 4 ? 'bg-green-500' : '' }} rounded-full h-12 w-12 flex items-center justify-center">
+                            @if ($order->status == 4)
+                                <img class="object-center"
+                                    src="https://img.icons8.com/metro/24/ffffff/banknotes.png" />
+                            @else
+                                <i class="fa-solid fa-xmark text-white"></i>
+                            @endif
+                        </div>
+                    @else
+                        <div
+                            class="{{ $order->status >= 2 ? 'bg-sky-500' : 'bg-gray-400' }} rounded-full h-12 w-12 flex items-center justify-center">
+                            @if ($order->status >= 2)
+                                <img class="object-center"
+                                    src="https://img.icons8.com/metro/24/ffffff/banknotes.png" />
+                            @else
+                                <i class="fa-solid fa-xmark text-white"></i>
+                            @endif
+                        </div>
+                    @endif
+                    <div class="absolute -left-1.5 mt-0.5 flex">
+                        <p class="{{ $order->status >= 2 && $order->status != 5 ? 'font-semibold' : '' }}">Pagado
+                        </p>
+                    </div>
+                </div>
 
-            <div
-                class="{{ $order->status >= 3 && $order->status != 5 ? 'bg-blue-400' : 'bg-gray-400' }} h-1 flex-1 mx-2">
-            </div>
+                @if ($order->status >= 4)
+                    <div
+                        class="{{ $order->status == 4 ? 'bg-green-500' : '' }} h-1 flex-1 mx-2">
+                    </div>
+                @else
+                    <div class="{{ $order->status == 3 ? 'bg-sky-500' : 'bg-gray-400' }} h-1 flex-1 mx-2">
+                    </div>
+                @endif
 
-            <div class="relative">
-                <div
-                    class="{{ $order->status >= 3 && $order->status != 5 ? 'bg-blue-400' : 'bg-gray-400' }} rounded-full h-12 w-12 flex items-center justify-center">
-                    <i class="fas fa-truck text-white"></i>
+                <div class="relative">
+                    @if ($order->status >= 4)
+                        <div
+                            class="{{ $order->status == 4 ? 'bg-green-500' : '' }} rounded-full h-12 w-12 flex items-center justify-center">
+                            @if ($order->status == 4)
+                                <i class="fa-solid fa-truck text-xl text-white"></i>
+                            @else
+                                <i class="fa-solid fa-xmark text-white"></i>
+                            @endif
+                        </div>
+                    @else
+                        <div
+                            class="{{ $order->status >= 3 ? 'bg-sky-500' : 'bg-gray-400' }} rounded-full h-12 w-12 flex items-center justify-center">
+                            @if ($order->status >= 3)
+                                <i class="fa-solid fa-truck text-xl text-white"></i>
+                            @else
+                                <i class="fa-solid fa-xmark text-white"></i>
+                            @endif
+                        </div>
+                    @endif
+                    <div class="absolute -left-1 mt-0.5">
+                        <p class="{{ $order->status >= 2 && $order->status != 5 ? 'font-semibold' : '' }}">Enviado
+                        </p>
+                    </div>
                 </div>
-                <div class="absolute -left-1 mt-0.5">
-                    <p>Enviado</p>
+                @if ($order->status >= 4)
+                    <div
+                        class="{{ $order->status == 4 ? 'bg-green-500' : '' }} h-1 flex-1 mx-2">
+                    </div>
+                @else
+                    <div class="bg-gray-400 h-1 flex-1 mx-2">
+                    </div>
+                @endif
+                <div class="relative">
+                    @if ($order->status >= 4)
+                        <div
+                            class="{{ $order->status == 4 ? 'bg-green-500' : '' }} rounded-full h-12 w-12 flex items-center justify-center">
+                            @if ($order->status == 4)
+                                <i class="fa-solid fa-check text-xl text-white"></i>
+                            @else
+                                <i class="fa-solid fa-xmark text-white"></i>
+                            @endif
+                        </div>
+                    @else
+                        <div class="bg-gray-400 rounded-full h-12 w-12 flex items-center justify-center">
+                            {{-- @if ($order->status >= 4)
+                            <i class="fa-solid fa-truck text-xl text-white"></i>
+                        @else --}}
+                            <i class="fa-solid fa-xmark text-white"></i>
+                            {{-- @endif --}}
+                        </div>
+                    @endif
+                    <div class="absolute -left-2 mt-0.5">
+                        <p class="{{ $order->status >= 2 && $order->status != 5 ? 'font-semibold' : '' }}">
+                            Entregado</p>
+                    </div>
                 </div>
             </div>
-            <div
-                class="{{ $order->status >= 4 && $order->status != 5 ? 'bg-blue-400' : 'bg-gray-400' }} h-1 flex-1 mx-2">
-            </div>
-            <div class="relative">
-                <div
-                    class="{{ $order->status >= 4 && $order->status != 5 ? 'bg-blue-400' : 'bg-gray-400' }} rounded-full h-12 w-12 flex items-center justify-center">
-                    <i class="fas fa-check text-white"></i>
-                </div>
-                <div class="absolute -left-2 mt-0.5">
-                    <p>Entregado</p>
-                </div>
-            </div>
+            @endif
         </div>
         <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 flex items-center">
             <p class="text-gray-700 uppercase"><span class="font-semibold">Número de orden:</span>
@@ -100,13 +173,13 @@
                                 </div>
                             </td>
                             <td class="text-center">
-                                {{ number_format($item->price, 2,'.',',') }} Bs
+                                {{ number_format($item->price, 2, '.', ',') }} Bs
                             </td>
                             <td class="text-center">
                                 {{ $item->qty }}
                             </td>
                             <td class="text-center">
-                                {{ number_format($item->price * $item->qty,2,'.',',') }}
+                                {{ number_format($item->price * $item->qty, 2, '.', ',') }}
                             </td>
                         </tr>
                     @endforeach
