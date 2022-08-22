@@ -10,8 +10,8 @@
                     <div>
                         <p class="text-lg font-semibold uppercase">Envío</p>
                         @if ($order->envio_type == 1)
-                            <p class="text-sm">Los productos deben ser recogidos en tienda</p>
-                            <p class="text-sm">Calle falsa 123</p>
+                            <p class="text-sm">Los productos deben ser recogidos en nuestro almacén:</p>
+                            <p class="text-sm">Barrio San Jose, C/Parapety Esq. el Tunal</p>
                         @else
                             <p class="text-sm font-bold">Los productos seran enviados a:</p>
                             <p class="text-sm">{{ $envio->address }}</p>

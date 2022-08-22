@@ -23,7 +23,7 @@
             <label class="bg-white rounded-lg shadow px-6 py-4 flex items-center mb-4">
                 <input x-model="envio_type" type="radio" value="1" name="envio_type" class="text-gray-600">
                 <span class="ml-2 text-gray-700">
-                    Recojo en tienda (Calle Falsa 123)
+                    Recojo en almacén, Camiri (Barrio San Jose, C/Parapety Esq. el Tunal)
                 </span>
                 <span class="font-semibold text-gray-700 ml-auto">
                     Gratis
@@ -94,9 +94,9 @@
                 Continuar con la compra
             </x-jet-button>
             <hr>
-            <p class="text-sm text-gray-700 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore iste
-                ratione aliquid. Cumque, illo quam
-                quod, alias necessitatibus in id aspernatur enim reiciendis hic minima saepe ea impedit dolorem a! <a
+            <p class="text-sm text-gray-700 mt-2">
+                Si tiene alguna duda sobre los datos que le solicitamos puede leer nuestras
+                <a
                     href="{{ route('politicasdeprivacidad') }}" target="_blank" class="font-semibold text-orange-600">Políticas de privacidad</a></p>
         </div>
 
