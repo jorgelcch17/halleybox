@@ -2,6 +2,18 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY3ZB4W26R"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+    
+        gtag('config', 'G-MY3ZB4W26R');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -29,6 +41,7 @@
         integrity="sha512-oQq8uth41D+gIH/NJvSJvVB85MFk1eWpMK6glnkg6I7EdMqC1XVkW7RxLheXwmFdG03qScCM7gKS/Cx3FYt7Tg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
+
 
 <body class="font-sans antialiased">
     <x-jet-banner />
