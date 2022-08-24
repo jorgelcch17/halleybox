@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Order;
 
 class WelcomeController extends Controller
@@ -20,6 +21,7 @@ class WelcomeController extends Controller
         }
         
         $categories = Category::all();
-        return view('welcome', compact('categories'));
+        $featureds = Product::has('featured')->get();
+        return view('welcome', compact('categories', 'featureds'));
     }
 }

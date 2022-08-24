@@ -59,6 +59,10 @@ class Product extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    public function featured(){
+        return $this->morphOne(Featured::class, 'featuredable');
+    }
+
     // URL AMIGABLES
     public function getRouteKeyName()
     {

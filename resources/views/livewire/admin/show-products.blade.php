@@ -97,7 +97,10 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <a href="{{ route('admin.products.edit', $product) }}"
-                                        class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                    class="text-indigo-600 hover:text-indigo-900">Editar</a>
+                                    <a wire:click="destacado({{$product->id}})">
+                                        <i class="fa-solid fa-star pl-10 text-xl {{ $product->featured ? 'text-yellow-500' : ''  }} hover:text-gray-500"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

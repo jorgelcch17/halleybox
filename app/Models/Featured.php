@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class Featured extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['url', 'imageable_id', 'imageable_type'];
+    protected $fillable = ['id', 'featuredable_id', 'featuredable_type'];
 
-    public function imageable(){
+    public function featuredable(){
         return $this->morphTo();
     }
-
-
 }
