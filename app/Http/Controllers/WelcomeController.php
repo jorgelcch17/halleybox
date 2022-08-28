@@ -20,7 +20,7 @@ class WelcomeController extends Controller
             
         }
         
-        $categories = Category::all();
+        $categories = Category::all()->take(1);
         $featureds = Product::has('featured')->get();
         return view('welcome', compact('categories', 'featureds'));
     }

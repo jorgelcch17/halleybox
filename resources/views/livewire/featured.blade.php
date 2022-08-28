@@ -1,32 +1,30 @@
 <div wire:init="loadFeatured">
     @if (count($products))
-        <div class="glider-contain">
-            <ul class="glider-featured">
-                @foreach ($products as $product)
-                    <li class="rounded-lg {{ $loop->last ? '' : 'mr-2 sm:mr-4' }}">
-                        <article>
-                            <figure class="aspect-square overflow-hidden">
-                                <a href="{{ route('products.show', $product) }}">
-                                    <img class="w-full object-cover object-center"
-                                        src="{{ Storage::url($product->images->first()->url) }}" alt="">
+                <div  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-4">
+                    @foreach ($products as $product)
+                            <article class="bg-white h-full flex flex-col rounded-lg overflow-hidden">
+                                <figure class="aspect-square overflow-hidden">
+                                    <a href="{{ route('products.show', $product) }}">
+                                        <img class="w-full object-cover object-center"
+                                            src="{{ Storage::url($product->images->first()->url) }}" alt="">
+                                    </a>
+                                </figure>
+                                <div class="flex-1 px-1 py-2 text-center">
+                                    <h3 class="font-semibold text-lg leading-5">
+                                        <a class="hover:underline line-clamp-2 overflow-hidden" href="{{ route('products.show', $product) }}">hola mudno {{ $product->name }}</a>
+                                    </h3>
+                                    <p class="text-neutral-700 py-1">Bs {{ number_format($product->price, 2,'.',',') }}</p>
+                                </div>
+                                <a href="#" class="inline-block w-full bg-gray-700 hover:bg-green-600 text-white py-2 text-center uppercase font-medium">
+                                    Pedir
+                                    <i class="fa-brands fa-whatsapp ml-1"></i>
                                 </a>
-                            </figure>
-                            <div class="px-1 py-2 flex flex-col justify-between">
-                                <h3 class="font-semibold font-sans">
-                                    {{-- <a href="{{ route('products.show', $product)}}">{{ Str::limit($product->name, 20) }}</a> --}}
-                                    <a class="hover:underline" href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
-                                </h3>
-                                <p class="text-neutral-700">Bs {{ number_format($product->price, 2,'.',',') }}</p>
-                            </div>
-                        </article>
-                    </li>
-                @endforeach
-            </ul>
-
+                            </article>
+                    @endforeach
+                </div>
             <button aria-label="Previous" class="glider-prev hidden sm:block">«</button>
             <button aria-label="Next" class="glider-next hidden sm:block">»</button>
             <div role="tablist" class="md:hidden dots"></div>
-        </div>
     @else
         <div class="mb-4 container flex items-center justify-center h-48 bg-white shadow-xl border border-gray-200">
             <button type="button"

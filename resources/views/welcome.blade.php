@@ -1,19 +1,22 @@
 <x-app-layout>
     @livewire('banner-home')
     <div class="container pb-8">
+        <section>
+            <div class="bg-orange-400 mb-8 px-2 pt-2 pb-4">
+                <h2 class="text-lg uppercase text-gray-700 font-bold">Top categorías</h2>
+                @livewire('top-categories')
+            </div>
+        </section>
         @foreach ($categories as $category)
             @if ($featureds->count())
                 <section>
-                    <div class="flex justify-between items-center mb-2">
-                        <h2 class="text-lg uppercase text-gray-700 font-bold">Productos destacados</h2>
-                        {{-- <a class="text-red-500 hover:text-orange-400 hover:underline ml-2 font-semibold"
-                        href="{{ route('categories.show', $category) }}">Ver más <i
-                            class="fa-solid fa-angle-right"></i></a> --}}
+                    <div class="mb-2">
+                        <h2 class="text-lg uppercase text-gray-700 font-bold border-b-2 border-gray-300">Productos destacados</h2>
                     </div>
                     @livewire('featured')
                 </section>
             @endif
-            @if ($category->products->count())
+            {{-- @if ($category->products->count())
                 <section class="mb-6">
                     <div class="flex justify-between items-center mb-2">
                         <h2 class="text-lg uppercase font-semibold text-gray-700">{{ $category->name }}</h2>
@@ -23,7 +26,7 @@
                     </div>
                     @livewire('category-products', ['category' => $category])
                 </section>
-            @endif
+            @endif --}}
         @endforeach
     </div>
 

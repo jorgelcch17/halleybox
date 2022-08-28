@@ -1,5 +1,5 @@
 <div>
-    <div class="bg-white rounded-lg shadow-lg mb-6">
+    <div class="bg-white rounded-lg shadow mb-6">
         <div class="px-6 py-2 flex justify-between items-center" x-data>
             <h1 class="font-semibold text-gray-700 uppercase">{{ $category->name }}</h1>
             <div
@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <aside class="flex sm:block sm:col-span-1 bg-gray-50 rounded-md px-3 py-2 h-max">
+        <aside class="flex sm:block sm:col-span-1 bg-gray-50 rounded-md px-3 py-2 h-max shadow">
             <div class="hidden sm:block">
                 <h2 class="font-semibold text-center mb-2 uppercase">Subcategorias</h2>
                 <ul class="divide-y divide-gray-200">
@@ -49,7 +49,7 @@
                 </select>
             </div>
 
-            <x-button class="inline-flex justify-center items-center sm:mt-4 sm:w-full" color="red" wire:click="limpiar">
+            <x-button class="inline-flex justify-center items-center sm:mt-4 sm:w-full hover:shadow-md hover:shadow-red-500" color="red" wire:click="limpiar">
                 <i class="fa-solid fa-trash-can"></i>
                 <span class="hidden md:inline ml-2">Eliminar filtros</span>
                 <span class="hidden sm:inline md:hidden ml-2">Limpiar</span>
@@ -57,23 +57,26 @@
         </aside>
         <div class="sm:col-span-2 lg:col-span-3">
             @if ($view == 'grid')
-                <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     @forelse ($products as $product)
                         <li class="rounded-lg">
-                            <article>
+                            <article class="bg-white h-full shadow flex flex-col rounded-lg overflow-hidden">
                                 <figure class="aspect-square overflow-hidden">
                                     <a href="{{ route('products.show', $product) }}">
-                                        <img class="w-full object-cover object-center transition duration-200 hover:transform hover:scale-105"
+                                        <img class="w-full object-cover object-center"
                                             src="{{ Storage::url($product->images->first()->url) }}" alt="">
                                     </a>
                                 </figure>
-                                <div class="px-1 py-2 flex flex-col justify-between">
-                                    <h3 class="font-semibold font-sans">
-                                        <a class="hover:underline"
-                                            href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
+                                <div class="flex-1 px-1 py-1 text-center">
+                                    <h3 class="font-semibold text-lg leading-5">
+                                        <a class="hover:underline line-clamp-2 overflow-hidden" href="{{ route('products.show', $product) }}">hola mudno {{ $product->name }}</a>
                                     </h3>
-                                    <p class="text-neutral-700">Bs {{ number_format($product->price,2,'.',',') }}</p>
+                                    <p class="text-neutral-700 py-2">Bs {{ number_format($product->price, 2,'.',',') }}</p>
                                 </div>
+                                {{-- <a href="#" class="inline-block w-full bg-gray-700 hover:bg-green-600 text-white py-2 text-center uppercase font-medium">
+                                    Pedir
+                                    <i class="fa-brands fa-whatsapp ml-1"></i>
+                                </a> --}}
                             </article>
                         </li>
                     @empty

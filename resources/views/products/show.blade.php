@@ -54,6 +54,34 @@
 
         <x-tab-product :product="$product" />
 
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-lg uppercase text-gray-700 font-bold">Más de {{ $product->subcategory->name }}</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:px-4 py-6 gap-4">
+                @foreach ($more as $product)
+                    <article class="bg-white h-full flex flex-col rounded-lg overflow-hidden">
+                        <figure class="aspect-square overflow-hidden">
+                            <a href="{{ route('products.show', $product) }}">
+                                <img class="w-full object-cover object-center"
+                                    src="{{ Storage::url($product->images->first()->url) }}" alt="">
+                            </a>
+                        </figure>
+                        <div class="flex-1 px-1 py-2 text-center">
+                            <h3 class="font-semibold text-lg leading-5">
+                                <a class="hover:underline line-clamp-2 overflow-hidden"
+                                    href="{{ route('products.show', $product) }}">hola mudno {{ $product->name }}</a>
+                            </h3>
+                            <p class="text-neutral-700 py-2">Bs {{ number_format($product->price, 2, '.', ',') }}</p>
+                        </div>
+                        <a href="#"
+                            class="inline-block w-full bg-gray-700 hover:bg-green-600 text-white py-2 text-center uppercase font-medium">
+                            Pedir
+                            <i class="fa-brands fa-whatsapp ml-1"></i>
+                        </a>
+                    </article>
+                @endforeach
+            </div>
+        </div>
+
     </div>
     @push('script')
         <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>

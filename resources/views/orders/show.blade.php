@@ -1,10 +1,16 @@
 <x-app-layout>
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-8">
+        @if ($paymentinfo)
+        <div class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
+            role="alert">
+            <span class="font-bold">Usted ya envio datos del pago de esta orden</span> solo realize un nuevo envio en caso de que ubiese introducido un dato erroneo.
+        </div>
+        @endif
         <div class="bg-white rounded-lg shadow-lg">
             <p class="py-2 px-6 font-bold">Estado de la orden:</p>
             @if ($order->status == 1)
             <div class="px-12 pb-8 mb-6">
-                <P class="text-center font-bold text-2xl text-orange-400">PENDIENTE DE PAGO</P>
+                <P class="text-center font-bold text-xl sm:text-2xl text-orange-400">PENDIENTE DE PAGO</P>
             </div>
             @elseif($order->status == 5)
             <div class="px-12 pb-8 mb-6">
@@ -110,14 +116,19 @@
             </div>
             @endif
         </div>
-        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 flex items-center">
+        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 flex items-center justify-between">
             <p class="text-gray-700 uppercase"><span class="font-semibold">Número de orden:</span>
                 Orden-{{ $order->id }}</p>
 
             @if ($order->status == 1)
-                <x-button-enlace class="ml-auto" href="{{ route('orders.payment', $order) }}">
-                    Ir a pagar
-                </x-button-enlace>
+                <div class="absolute top-0 inset-x-0 md:static flex md:block justify-between items-center px-4 sm:px-6 md:px-0 mt-4 md:mt-0">
+                    <x-button-enlace class="md:ml-auto" href="{{ route('orders.payment', $order) }}">
+                        Ir a pagar
+                    </x-button-enlace>
+                    <x-button-enlace class="bg-blue-500 hover:bg-blue-600 md:ml-auto" href="{{ route('orders.paymentconfirm', $order) }}">
+                        Enviar datos de pago
+                    </x-button-enlace>
+                </div>
             @endif
         </div>
         <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
@@ -126,7 +137,7 @@
                     <p class="text-lg font-semibold uppercase">Envío</p>
                     @if ($order->envio_type == 1)
                         <p class="text-sm">Los productos deben ser recogidos en tienda</p>
-                        <p class="text-sm">Calle falsa 123</p>
+                        <p class="text-sm">Barrio San Jose Calle Parapety y Calle el Tunal</p>
                     @else
                         <p class="text-sm">Los productos seran enviados a:</p>
                         <p class="text-sm">{{ $envio->address }}</p>

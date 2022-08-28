@@ -4,20 +4,23 @@
             <ul class="glider-{{ $category->id }}">
                 @foreach ($products as $product)
                     <li class="rounded-lg {{ $loop->last ? '' : 'mr-2 sm:mr-4' }}">
-                        <article>
+                        <article class="bg-white h-full flex flex-col rounded-lg overflow-hidden">
                             <figure class="aspect-square overflow-hidden">
                                 <a href="{{ route('products.show', $product) }}">
                                     <img class="w-full object-cover object-center"
                                         src="{{ Storage::url($product->images->first()->url) }}" alt="">
                                 </a>
                             </figure>
-                            <div class="px-1 py-2 flex flex-col justify-between">
-                                <h3 class="font-semibold font-sans">
-                                    {{-- <a href="{{ route('products.show', $product)}}">{{ Str::limit($product->name, 20) }}</a> --}}
-                                    <a class="hover:underline" href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
+                            <div class="flex-1 px-1 py-2 text-center">
+                                <h3 class="font-semibold text-lg leading-5">
+                                    <a class="hover:underline line-clamp-2 overflow-hidden" href="{{ route('products.show', $product) }}">hola mudno {{ $product->name }}</a>
                                 </h3>
-                                <p class="text-neutral-700">Bs {{ number_format($product->price, 2,'.',',') }}</p>
+                                <p class="text-neutral-700 py-2">Bs {{ number_format($product->price, 2,'.',',') }}</p>
                             </div>
+                            <a href="#" class="inline-block w-full bg-gray-700 hover:bg-green-600 text-white py-2 text-center uppercase font-medium">
+                                Pedir
+                                <i class="fa-brands fa-whatsapp ml-1"></i>
+                            </a>
                         </article>
                     </li>
                 @endforeach

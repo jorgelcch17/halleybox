@@ -1,8 +1,8 @@
 @props(['product', 'stars'])
-<li class="bg-white rounded-lg mb-4">
-    <article class="md:flex p-2">
+<li class="bg-white rounded-lg mb-4 overflow-hidden">
+    <article class="md:flex">
         <figure>
-            <img class="h-48 w-48 object-cover object-center shadow-md" src="{{Storage::url($product->images->first()->url)}}" alt="">
+            <img class="h-48 w-48 object-cover object-center" src="{{Storage::url($product->images->first()->url)}}" alt="">
         </figure>
         <div class="flex-1 py-4 px-6 flex flex-col">
             <div class="lg:flex justify-between">

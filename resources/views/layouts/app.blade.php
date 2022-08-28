@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="{{ asset('css/glide.core.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/glide.theme.min.css') }}">
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <script src="{{ asset('js/glide.min.js') }}"></script>
     {{-- <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.css"
@@ -52,7 +55,7 @@
 </head>
 
 
-<body class="font-sans antialiased">
+<body class="font-monse antialiased">
     <h1 class="hidden">HALLEYBOX</h1>
     <x-jet-banner />
 

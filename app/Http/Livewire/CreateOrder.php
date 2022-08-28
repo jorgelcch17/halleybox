@@ -5,6 +5,8 @@ namespace App\Http\Livewire;
 use App\Models\City;
 use Livewire\Component;
 use App\Models\Order;
+use App\Models\Category;
+use App\Models\Product;
 
 use App\Models\Department;
 use App\Models\District;
@@ -12,11 +14,11 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CreateOrder extends Component
 {
-
+    
     public $envio_type = 1;
     
     public $contact, $phone, $address, $references, $shipping_cost = 0;
-
+    
     public $departments, $cities = [], $districts = [];
 
     public $department_id = '', $city_id = '', $district_id = '';
@@ -27,7 +29,16 @@ class CreateOrder extends Component
         'envio_type' => 'required'
     ];
 
+    protected $validationAttributes = [
+        'contact' => 'Nombre de contacto',
+        'phone' => 'Teléfono de contacto',
+        'envio_type' => 'Tipo de envío'
+    ];
+
     public function mount(){
+        if(Cart::count() == 0){
+            return redirect()->route('home');
+        }
         $this->departments = Department::all();
     }
 
@@ -94,6 +105,8 @@ class CreateOrder extends Component
         }
 
         Cart::destroy();
+
+        session()->flash('message', 'Post successfully updated.');
 
         return redirect()->route('orders.payment', $order);
     }

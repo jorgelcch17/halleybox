@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function show(Product $product){
-        return view('products.show', compact('product'));
+        $more = $product->subcategory->products->where('id', '!=', $product->id)->take(3);
+
+        return view('products.show', compact('product', 'more'));
     }
 }

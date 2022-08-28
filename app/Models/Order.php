@@ -29,6 +29,11 @@ class Order extends Model
         return $this->belongsTo(District::class);
     }
 
+    // relacion uno a  uno con la tabla payment_infos
+    public function paymentInfo(){
+        return $this->hasOne(PaymentInfo::class);
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

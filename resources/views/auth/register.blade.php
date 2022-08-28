@@ -1,4 +1,5 @@
 <x-guest-layout>
+    @section('title-complement','Registro')
     <x-jet-authentication-card>
         <x-slot name="logo">
             <a href="/" class="flex flex-col items-center">

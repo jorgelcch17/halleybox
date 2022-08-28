@@ -1,14 +1,14 @@
-<div class="md:-mt-16" x-data="{ activeTab: 1 }">
+<div class="md:-mt-16 max-w-7xl mx-auto md:px-4 sm:px-6 lg:px-24 py-6" x-data="{ activeTab: 1 }">
     <div class="flex justify-center gap-2 mt-8 border-b-2 border-gray-300 pb-2">
         <a x-on:click="activeTab=1" x-bind:class="activeTab == 1 ? 'bg-gray-100 shadow-sm' : ''"
             class="text-neutral-700 font-bold px-4 py-2 rounded-md cursor-pointer">Descripción</a>
         <a x-on:click="activeTab=2" x-bind:class="activeTab == 2 ? 'bg-gray-100 shadow-sm' : ''"
             class="text-neutral-700 font-bold px-4 py-2 rounded-md cursor-pointer">Reseñas</a>
     </div>
-    <div class="bg-gray-200 rounded-md p-2 text-xl ck-content" x-show="activeTab==1">
+    <div class="bg-gray-200 rounded-md p-2 text-base ck-content" x-show="activeTab==1" x-transition.duration.300>
         {!! $product->description !!}
     </div>
-    <div class="bg-gray-200 rounded-md text-xl" x-show="activeTab==2">
+    <div class="bg-gray-200 rounded-md text-xl" x-show="activeTab==2" x-transition.duration.300>
         @can('review', $product)
             <form class="bg-gray-200 rounded-md p-4 mt-2" action="{{route('review.store', $product)}}" method="POST">
                 @csrf

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Paymentinfo;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -30,6 +31,12 @@ class OrderController extends Controller
         $this->authorize('author', $order);
         $items = json_decode($order->content);
         $envio = json_decode($order->envio);
-        return view('orders.show', compact('order', 'items', 'envio'));
+        $paymentinfo;
+        if($order->paymentinfo && $order->status == 1){
+            $paymentinfo = true;
+        }else{
+        $paymentinfo = false;
+        }
+        return view('orders.show', compact('order', 'items', 'envio','paymentinfo'));
     }
 }

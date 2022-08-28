@@ -10,7 +10,9 @@ use App\Models\Order;
 class OrderController extends Controller
 {
     public function index(){
-        $orders = Order::query()->where('status', '<>', 1);
+        // $orders = Order::query()->where('status', '<>', 1);
+        // trayendo todo de orden para poder aplicar un filtro de status
+        $orders = Order::query();
 
         if(request('status')){
             $orders->where('status', request('status'));
