@@ -3,9 +3,9 @@
         <div class="glide__track" data-glide-el="track">
             <ul class="glide__slides">
                 @foreach ($banners as $banner)
-                    <li class="h-72 md:h-96 glide_slide">
+                <li class="h-72 md:h-96 glide_slide bg-white" id="banner{{$banner->id}}">
                         @if ($banner->redirect_to)
-                            <a href="{{ $banner->redirect_to }}">
+                            <a class="h-full w-full" href="{{ $banner->redirect_to }}">
                                 <img class="h-full w-full object-cover object-center"
                                     src="{{ Storage::url($banner->url) }}" alt="">
                             </a>
