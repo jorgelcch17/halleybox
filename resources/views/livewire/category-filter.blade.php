@@ -69,7 +69,7 @@
                                 </figure>
                                 <div class="flex-1 px-1 py-1 text-center">
                                     <h3 class="font-semibold text-lg leading-5">
-                                        <a class="hover:underline line-clamp-2 overflow-hidden" href="{{ route('products.show', $product) }}">hola mudno {{ $product->name }}</a>
+                                        <a class="hover:underline line-clamp-2 overflow-hidden" href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
                                     </h3>
                                     <p class="text-neutral-700 py-2">Bs {{ number_format($product->price, 2,'.',',') }}</p>
                                 </div>
