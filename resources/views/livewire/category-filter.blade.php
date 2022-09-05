@@ -3,17 +3,22 @@
         <div class="px-6 py-2 flex justify-between items-center" x-data>
             <h1 class="font-semibold text-gray-700 uppercase">{{ $category->name }}</h1>
             <div
-                class="hidden md:grid md:grid-cols-2 border border-gray-200 divide-x divide-gray-200 text-gray-500 cursor-pointer">
-                <i class="fa-solid fa-border-all p-3 {{ $view == 'grid' ? 'text-orange-500' : '' }}"
-                    x-on:click="$wire.set('view','grid')"></i>
-                <i class="fas fa-list p-3 {{ $view == 'list' ? 'text-orange-500' : '' }}"
-                x-on:click="$wire.set('view','list')"></i>
-            </div>
+            class="hidden md:grid md:grid-cols-2 border border-gray-200 divide-x divide-gray-200 text-gray-500 cursor-pointer">
+            <i class="fa-solid fa-border-all p-3 {{ $view == 'grid' ? 'text-orange-500' : '' }}"
+            x-on:click="$wire.set('view','grid')"></i>
+            <i class="fas fa-list p-3 {{ $view == 'list' ? 'text-orange-500' : '' }}"
+            x-on:click="$wire.set('view','list')"></i>
         </div>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6">
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <aside class="flex sm:block sm:col-span-1 bg-gray-50 rounded-md px-3 py-2 h-max shadow">
             <div class="hidden sm:block">
+                <h2 class="font-semibold text-center mb-2 uppercase">Ordenar</h2>
+                <ul>
+                    <li class="py-2 text-sm text-gray-700 mb-2 cursor-pointer {{ $sorting == 'asc' ? 'text-orange-400 font-semibold' : '' }}" wire:click="orderAsc">Precio más bajo primero</li>
+                    <li class="py-2 text-sm text-gray-700 mb-2 cursor-pointer {{ $sorting == 'desc' ? 'text-orange-400 font-semibold' : '' }}" wire:click="orderDesc">El precio más alto primero</li>
+                </ul>
                 <h2 class="font-semibold text-center mb-2 uppercase">Subcategorias</h2>
                 <ul class="divide-y divide-gray-200">
                     @foreach ($category->subcategories as $subcategory)
