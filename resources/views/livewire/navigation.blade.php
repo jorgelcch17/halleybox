@@ -1,6 +1,8 @@
-<header x-data="dropdown()" class="bg-neutral-800 sticky top-0" style="z-index: 900">
+<header x-data="dropdown()" class="bg-white sticky top-0" style="z-index: 900">
+
     <div class="container flex items-center h-16 justify-between md:justify-start">
-        <a :class="{'bg-opacity-100 text-neutral-700': open}" x-on:click="show()" class="flex flex-col items-center justify-center px-6 md:px-4 order-last md:order-first bg-white bg-opacity-25 text-white cursor-pointer fornt-semibold h-full">
+        {{-- boton de categorias --}}
+        <a :class="{'bg-opacity-100 text-neutral-700': open}" x-on:click="show()" class="flex flex-col items-center justify-center px-6 md:px-4 order-last md:order-first bg-gray-200 bg-opacity-25 text-black cursor-pointer fornt-semibold h-full hover:text-sky-500">
             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -9,12 +11,12 @@
         <a href="/" class="flex items-center md:mx-6">
             {{-- <x-jet-application-mark class="block h-9 w-auto"/> --}}
             {{-- <img src="https://img.icons8.com/material-outlined/24/ffffff/asteroid.png"/> --}}
-            <img class="h-6 w-6" src="{{ asset('img/logo-blanco.svg')}} " alt="logo de halleybox">
-            <span class="font-bold text-white ml-2">HALLEY<span class="text-sky-500">BOX</span></span>
+            <img class="h-6 w-6" src="{{ asset('img/logo-negro.svg')}} " alt="logo de halleybox">
+            <span class="font-bold text-black ml-2">HALLEY<span class="text-sky-500">BOX</span></span>
         </a>
 
         <div class="flex-1 hidden md:block">@livewire('search')</div>
-
+       
         <div class="mx-6 relative hidden md:block">
             @auth
                 <x-jet-dropdown align="right" width="48">
@@ -79,7 +81,13 @@
             @else
                 <x-jet-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <i class="fas fa-user-circle text-white text-3xl cursor-pointer"></i>
+                        <a class="inline-block no-underline" href="#">
+                            <svg class="fill-current hover:text-sky-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <circle fill="none" cx="12" cy="7" r="3" />
+                                <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
+                            </svg>
+                        </a>
+                        {{-- <i class="fas fa-user-circle text-white text-3xl cursor-pointer"></i> --}}
                     </x-slot>
                     <x-slot name="content">
                         <x-jet-dropdown-link href="{{ route('login') }}">
@@ -132,7 +140,7 @@
             </div>
             <ul>
                 @foreach ($categories as $category)
-                <li class="text-neutral-500 hover:bg-orange-500 hover:text-white">
+                <li class="text-neutral-500 hover:bg-sky-500 hover:text-white">
                     <a href="{{ route('categories.show',$category)}}" class="py-2 px-4 text-sm flex items-center">
                         <span class="flex justify-center w-9">
                             {!!$category->icon!!}
@@ -148,13 +156,13 @@
             @livewire('cart-mobil')
 
             @auth
-                <a  href="{{ route('profile.show') }}" class="py-2 px-4 text-sm flex items-center text-neutral-500 hover:bg-orange-500 hover:text-white">
+                <a  href="{{ route('profile.show') }}" class="py-2 px-4 text-sm flex items-center text-neutral-500 hover:bg-sky-500 hover:text-white">
                     <span class="flex justify-center w-9">
                         <i class="fas fa-address-card"></i>
                     </span>
                     Perfil
                 </a>
-                <a onclick="event.preventDefault(); document.getElementById('logout-form').submit()" href="" class="py-2 px-4 text-sm flex items-center text-neutral-500 hover:bg-orange-500 hover:text-white">
+                <a onclick="event.preventDefault(); document.getElementById('logout-form').submit()" href="" class="py-2 px-4 text-sm flex items-center text-neutral-500 hover:bg-sky-500 hover:text-white">
                     <span class="flex justify-center w-9">
                         <i class="fa-solid fa-right-from-bracket"></i>
                     </span>
@@ -164,13 +172,13 @@
                     @csrf
                 </form>
             @else
-                <a href="{{ route('login') }}" class="py-2 px-4 text-sm flex items-center text-neutral-500 hover:bg-orange-500 hover:text-white">
+                <a href="{{ route('login') }}" class="py-2 px-4 text-sm flex items-center text-neutral-500 hover:bg-sky-500 hover:text-white">
                     <span class="flex justify-center w-9">
                         <i class="fa-solid fa-circle-user"></i>
                     </span>
                     Iniciar sesion
                 </a>
-                <a href="{{ route('register') }}" class="py-2 px-4 text-sm flex items-center text-neutral-500 hover:bg-orange-500 hover:text-white">
+                <a href="{{ route('register') }}" class="py-2 px-4 text-sm flex items-center text-neutral-500 hover:bg-sky-500 hover:text-white">
                     <span class="flex justify-center w-9">
                         <i class="fa-solid fa-fingerprint"></i>
                     </span>
