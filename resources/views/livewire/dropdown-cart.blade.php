@@ -63,7 +63,7 @@
 
             <div class="flex flex-col p-6 space-y-4 sm:p-2 overflow-y-auto max-h-96">
                 <h2 class="text-md font-semibold text-center">Mi Carrito de Compra</h2>
-                <hr>                
+                <hr>      
                 <ul class="flex flex-col divide-y divide-gray-300">
                     @forelse(Cart::content() as $item)
                         <li class="flex p-2 border-b border-gray-200">
