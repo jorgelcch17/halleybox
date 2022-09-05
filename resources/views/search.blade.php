@@ -2,7 +2,7 @@
     <div class="container py-8">
         <ul>
             @forelse($products as $product)
-                <x-product-list :product="$product"/>
+                <x-product-list :product="$product" :stars="$product->reviews->avg('rating')"/>
             @empty
                 <li class="bg-white rounded-lg shadow-2xl">
                     <div class="p-4">
