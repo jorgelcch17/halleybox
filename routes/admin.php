@@ -12,6 +12,7 @@ use App\Http\Livewire\Admin\ShowDepartment;
 use App\Http\Livewire\Admin\CityComponent;
 use App\Http\Livewire\Admin\UserComponent;
 use App\Http\Livewire\Admin\ShowBanner;
+use App\Http\Livewire\Admin\Payment;
 
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -26,6 +27,8 @@ Route::get('products/{product}/edit', EditProduct::class)->name('admin.products.
 Route::post('products/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');
 
 Route::get('banners', ShowBanner::class)->name('admin.banners.show');
+
+Route::get('pagos', Payment::class)->name('admin.payments.show');
 
 Route::get('orders', [OrderController::class, 'index'])->name('admin.orders.index');
 
