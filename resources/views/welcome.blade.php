@@ -2,8 +2,8 @@
     @livewire('banner-home')
     <div class="container pb-8">
         <section>
-            <div class="bg-orange-400 mb-8 px-2 pt-2 pb-4">
-                <h2 class="text-lg uppercase text-gray-700 font-bold">Top categorías</h2>
+            <div class="bg-sky-100 dark:bg-sky-900 rounded-b-xl mb-8 px-2 pt-2 pb-4">
+                <h2 class="text-lg uppercase text-gray-700 dark:text-gray-300 font-bold">Top categorías</h2>
                 @livewire('top-categories')
             </div>
         </section>
@@ -11,7 +11,7 @@
             @if ($featureds->count())
                 <section>
                     <div class="mb-2">
-                        <h2 class="text-lg uppercase text-gray-700 font-bold border-b-2 border-gray-300">Productos destacados</h2>
+                        <h2 class="text-lg uppercase text-gray-700 dark:text-gray-300 font-bold border-b-2 border-gray-300">Productos destacados</h2>
                     </div>
                     @livewire('featured')
                 </section>

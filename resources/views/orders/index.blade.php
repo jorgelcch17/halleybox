@@ -54,14 +54,14 @@
         </section>
 
         @if ($orders->count())
-            <section class="bg-white shadow-lg rounded-lg px-12 py-8 mt-12 text-gray-700">
+            <section class="bg-white dark:bg-gray-900 dark:text-gray-300 shadow-lg rounded-lg px-12 py-8 mt-12 text-gray-700">
                 <h1 class="text-2xl mb-4">Pedidos recientes</h1>
 
                 <ul>
                     @foreach ($orders as $order)
                         <li>
                             <a href="{{ route('orders.show', $order) }}"
-                                class="flex items-center py-2 px-4 hover:bg-gray-100">
+                                class="flex items-center py-2 px-4 hover:bg-gray-100 dark:hover:bg-sky-900 ">
                                 <span class="w-12 text-center">
                                     @switch($order->status)
                                         @case(1)
@@ -135,7 +135,7 @@
                 </ul>
             </section>
         @else
-            <div class="bg-white shadow-lg rounded-lg px-12 py-8 mt-12 text-gray-700">
+            <div class="bg-white dark:bg-gray-900 dark:text-gray-300 shadow-lg rounded-lg px-12 py-8 mt-12 text-gray-700">
                 <span class="font-bold text-lg">
                     No existen ordenes
                 </span>

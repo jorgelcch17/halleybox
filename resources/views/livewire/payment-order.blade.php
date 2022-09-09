@@ -10,12 +10,12 @@
     <div class="relative grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 gap-6 container py-8">
         <div class="order-2 lg:order-1 xl:col-span-3">
             <div
-                class="absolute top-4 inset-x-0 mx-2 sm:mx-6 lg:static lg:mx-0 bg-white rounded-lg shadow px-6 py-4 mb-6">
-                <p class="text-gray-700 uppercase"><span class="font-semibold">Número de orden:</span>
+                class="absolute top-4 inset-x-0 mx-2 sm:mx-6 lg:static lg:mx-0 bg-white dark:bg-gray-900 rounded-lg shadow px-6 py-4 mb-6">
+                <p class="text-gray-700 dark:text-gray-400 uppercase"><span class="font-semibold">Número de orden:</span>
                     Orden-{{ $order->id }}</p>
             </div>
-            <div class="bg-white rounded-lg shadow p-6 mb-6">
-                <div class="grid grid-cols-2 gap-6 text-gray-700">
+            <div class="bg-white  dark:bg-gray-900 rounded-lg shadow p-6 mb-6">
+                <div class="grid grid-cols-2 gap-6 text-gray-700 dark:text-gray-300">
                     <div>
                         <p class="text-lg font-semibold uppercase">Envío</p>
                         @if ($order->envio_type == 1)
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-lg shadow-lg p-6 text-gray-700 mb-6">
+            <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 text-gray-700 dark:text-gray-300 mb-6">
                 <p class="text-xl font-semibold mb-4">Resumen</p>
                 <table class="table-auto w-full">
                     <thead>
@@ -84,11 +84,11 @@
         </div>
 
         <div class="order-1 lg:order-2 xl:col-span-2 mt-14 lg:mt-0">
-            <div class="bg-white rounded-lg shadow px-6 pt-6 pb-2 mb-4">
+            <div class="bg-white dark:text-gray-300 dark:bg-gray-900 rounded-lg shadow px-6 pt-6 pb-2 mb-4">
                 <div class=" flex justify-between items-center mb-4">
                     {{-- <img class="h-8" src="{{ asset('img/pagos.png') }}" alt=""> --}}
                     <span class="text-2xl font-bold">Resumen:</span>
-                    <div class="text-gray-700">
+                    <div class="text-gray-700 dark:text-gray-300">
                         <p class="text-sm ">
                             Subtotal: {{ number_format($order->total - $order->shipping_cost, 2, '.', ',') }} Bs
                         </p>
@@ -128,7 +128,7 @@
                     <li class="flex flex-col w-full space-y-1">
                         <button aria-controls="content-1" aria-expanded="true" id="accordion-control-1"
                             @click="selected !== 1 ? selected = 1 : selected = null"
-                            class="flex items-center w-full bg-white p-3 rounded-md"
+                            class="flex items-center w-full bg-white dark:text-gray-300 dark:bg-gray-900 p-3 rounded-md"
                             :aria-expanded="selected === 1 ? 'true' : 'false'">
                             <span class="mr-auto text-sm"><img class="inline h-6" src="{{ asset('img/pagos.png') }}"
                                     alt=""></span>
@@ -141,7 +141,7 @@
                             </svg>
                         </button>
                         {{-- <div aria-hidden="true" id="content-5" x-show="selected === 4" class="p-2 text-sm rounded bg-white shadow" :aria-hidden="selected === 2 ? 'false' : 'true'" style="display: none;" x-transition.duration.400> --}}
-                        <div aria-hidden="false" x-show="selected === 1" class="p-2 text-sm rounded bg-white shadow"
+                        <div aria-hidden="false" x-show="selected === 1" class="p-2 text-sm rounded bg-white dark:text-gray-300 dark:bg-gray-900 shadow"
                             :aria-hidden="selected === 1 ? 'false' : 'true'" style="display: none;"
                             x-transition.duration.400 id="paypal-button-container"><span
                                 class="inline-block p-1"><strong>Nota:</strong> pagar a traves de paypal o tarjeta hara
@@ -153,7 +153,7 @@
                     <li class="flex flex-col w-full space-y-1">
                         <button aria-controls="content-2" aria-expanded="false" id="accordion-control-2"
                             @click="selected !== 2 ? selected = 2 : selected = null"
-                            class="flex items-center w-full bg-white p-3 rounded-md shadow"
+                            class="flex items-center w-full bg-white dark:text-gray-300 dark:bg-gray-900 p-3 rounded-md shadow"
                             :aria-expanded="selected === 2 ? 'true' : 'false'">
                             <span class="mr-auto text-sm"><img class="inline h-6"
                                     src="{{ asset('img/tigo_money.png') }}" alt="">
@@ -167,7 +167,7 @@
                             </svg>
                         </button>
                         <div aria-hidden="true" id="content-2" x-show="selected === 2"
-                            class="p-2 text-sm rounded bg-white shadow" :aria-hidden="selected === 2 ? 'false' : 'true'"
+                            class="p-2 text-sm rounded bg-white dark:text-gray-300 dark:bg-gray-900 shadow" :aria-hidden="selected === 2 ? 'false' : 'true'"
                             style="display: none;" x-transition.duration.400>
                             Realiza tu pago a través de tigo money utilizando la siguiente información:
                             <ul class="mt-2">
@@ -181,7 +181,7 @@
                     <li class="flex flex-col w-full space-y-1">
                         <button aria-controls="content-3" aria-expanded="false" id="accordion-control-3"
                             @click="selected !== 3? selected = 3 : selected = null"
-                            class="flex items-center w-full bg-white p-3 rounded-md"
+                            class="flex items-center w-full bg-white dark:text-gray-300 dark:bg-gray-900 p-3 rounded-md"
                             :aria-expanded="selected === 3 ? 'true' : 'false'">
                             <span class="mr-auto text-sm"><img class="inline h-6"
                                     src="{{ asset('img/qr_simple.png') }}" alt=""> QR Simple</span>
@@ -194,7 +194,7 @@
                             </svg>
                         </button>
                         <div aria-hidden="true" id="content-3" x-show="selected === 3"
-                            class="p-2 text-sm rounded bg-white shadow"
+                            class="p-2 text-sm rounded bg-white dark:text-gray-300 dark:bg-gray-900 shadow"
                             :aria-hidden="selected === 3 ? 'false' : 'true'" style="display: none;"
                             x-transition.duration.400>
                             Realiza tu pago a través del siguiente QR Simple:
@@ -216,7 +216,7 @@
                     <li class="flex flex-col w-full space-y-1">
                         <button aria-controls="content-4" aria-expanded="false" id="accordion-control-4"
                             @click="selected !== 4 ? selected = 4 : selected = null"
-                            class="flex items-center w-full bg-white p-3 rounded-md"
+                            class="flex items-center w-full bg-white dark:text-gray-300 dark:bg-gray-900 p-3 rounded-md"
                             :aria-expanded="selected === 4 ? 'true' : 'false'">
                             <span class="mr-auto text-sm"><img class="inline h-6"
                                     src="{{ asset('img/transferencia.png') }}" alt=""> Deposito/transferencia
@@ -230,7 +230,7 @@
                             </svg>
                         </button>
                         <div aria-hidden="true" id="content-4" x-show="selected === 4"
-                            class="p-2 text-sm rounded bg-white shadow"
+                            class="p-2 text-sm rounded bg-white dark:text-gray-300 dark:bg-gray-900 shadow"
                             :aria-hidden="selected === 4 ? 'false' : 'true'" style="display: none;"
                             x-transition.duration.400>
                             Realiza tu pago a través de deposito o transferencia utilizando la siguiente información:
@@ -253,7 +253,7 @@
                     <li class="flex flex-col w-full space-y-1 opacity-50">
                         <button disabled aria-controls="content-5" aria-expanded="false" id="accordion-control-5"
                             @click="selected !== 5 ? selected = 5 : selected = null"
-                            class="flex items-center w-full bg-white p-3 rounded-md"
+                            class="flex items-center w-full bg-white dark:text-gray-300 dark:bg-gray-900 p-3 rounded-md"
                             :aria-expanded="selected === 5 ? 'true' : 'false'">
                             <span class="mr-auto text-sm"><img class="inline h-6"
                                     src="{{ asset('img/nalgas.png') }}" alt=""> Proximamente...</span>
@@ -266,7 +266,7 @@
                             </svg>
                         </button>
                         <div aria-hidden="true" id="content-5" x-show="selected === 5"
-                            class="p-2 text-sm rounded bg-white shadow"
+                            class="p-2 text-sm rounded bg-white dark:text-gray-300 dark:bg-gray-900 shadow"
                             :aria-hidden="selected === 5 ? 'false' : 'true'" style="display: none;"
                             x-transition.duration.400>
                             Proximamente...
@@ -277,7 +277,7 @@
                 </ul>
             </div>
 
-            <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 mt-6">
+            <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg px-6 py-4 mb-6 mt-6">
                 <p class="text-gray-700 text-sm p-2">Puedes ponerte en contacto con nosotros.</p>
                 <a class="bg-green-600 py-3 px-5 w-full rounded-sm text-white font-bold text-center text-xl flex items-center justify-center"
                     href="https://wa.me/59175853156" target="_blank"><i class="fa-brands fa-whatsapp mr-2"></i>

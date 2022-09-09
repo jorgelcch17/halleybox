@@ -1,29 +1,29 @@
 <div>
-    <div class="bg-white rounded-lg shadow mb-6">
+    <div class="bg-white  dark:bg-gray-900 rounded-lg shadow mb-6">
         <div class="px-6 py-2 flex justify-between items-center" x-data>
-            <h1 class="font-semibold text-gray-700 uppercase">{{ $category->name }}</h1>
+            <h1 class="font-semibold text-gray-700 dark:text-gray-200 uppercase">{{ $category->name }}</h1>
             <div
-            class="hidden md:grid md:grid-cols-2 border border-gray-200 divide-x divide-gray-200 text-gray-500 cursor-pointer">
-            <i class="fa-solid fa-border-all p-3 {{ $view == 'grid' ? 'text-orange-500' : '' }}"
+            class="hidden md:grid md:grid-cols-2 border border-gray-200 divide-x dark:divide-gray-700 dark:border-gray-700 divide-gray-200 text-gray-500 cursor-pointer">
+            <i class="fa-solid fa-border-all p-3 {{ $view == 'grid' ? 'text-sky-500' : '' }}"
             x-on:click="$wire.set('view','grid')"></i>
-            <i class="fas fa-list p-3 {{ $view == 'list' ? 'text-orange-500' : '' }}"
+            <i class="fas fa-list p-3 {{ $view == 'list' ? 'text-sky-500' : '' }}"
             x-on:click="$wire.set('view','list')"></i>
         </div>
     </div>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <aside class="flex sm:block sm:col-span-1 bg-gray-50 rounded-md px-3 py-2 h-max shadow">
+        <aside class="flex sm:block sm:col-span-1 bg-gray-50 dark:text-gray-300 dark:bg-gray-900 rounded-md px-3 py-2 h-max shadow">
             <div class="hidden sm:block">
-                <h2 class="font-semibold text-center mb-2 uppercase">Ordenar</h2>
-                <ul>
-                    <li class="py-2 text-sm text-gray-700 mb-2 cursor-pointer {{ $sorting == 'asc' ? 'text-orange-400 font-semibold' : '' }}" wire:click="orderAsc">Precio más bajo primero</li>
-                    <li class="py-2 text-sm text-gray-700 mb-2 cursor-pointer {{ $sorting == 'desc' ? 'text-orange-400 font-semibold' : '' }}" wire:click="orderDesc">El precio más alto primero</li>
+                <h2 class="font-semibold text-center mb-2 uppercase">Ordenar Por Precio</h2>
+                <ul class="dark:text-gray-200">
+                    <li class="py-2 text-sm text-gray-700 dark:text-gray-200  mb-2 cursor-pointer {{ $sorting == 'asc' ? 'text-sky-500 dark:text-sky-500 font-semibold' : '' }}" wire:click="orderAsc">Mas Bajo</li>
+                    <li class="py-2 text-sm text-gray-700 dark:text-gray-200  mb-2 cursor-pointer {{ $sorting == 'desc' ? 'text-sky-500 dark:text-sky-500 font-semibold' : '' }}" wire:click="orderDesc">Mas Alto</li>
                 </ul>
                 <h2 class="font-semibold text-center mb-2 uppercase">Subcategorias</h2>
                 <ul class="divide-y divide-gray-200">
                     @foreach ($category->subcategories as $subcategory)
                         <li class="py-2 text-sm">
-                            <a class="cursor-pointer hover:text-orange-500 capitalize {{ $subcategoria == $subcategory->slug ? 'text-orange-500 font-semibold' : '' }}"
+                            <a class="cursor-pointer hover:text-sky-500 capitalize {{ $subcategoria == $subcategory->slug ? 'text-sky-500 font-semibold' : '' }}"
                                 wire:click="$set('subcategoria','{{ $subcategory->slug }}')">{{ $subcategory->name }}</a>
                         </li>
                     @endforeach
@@ -33,7 +33,7 @@
                 <ul class="divide-y divide-gray-200">
                     @foreach ($category->brands as $brand)
                         <li class="py-2 text-sm">
-                            <a class="cursor-pointer hover:text-orange-500 capitalize {{ $marca == $brand->name ? 'text-orange-500 font-semibold' : '' }}"
+                            <a class="cursor-pointer hover:text-sky-500 capitalize {{ $marca == $brand->name ? 'text-sky-500 font-semibold' : '' }}"
                                 wire:click="$set('marca','{{ $brand->name }}')">{{ $brand->name }}</a>
                         </li>
                     @endforeach
@@ -65,7 +65,7 @@
                 <ul class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     @forelse ($products as $product)
                         <li class="rounded-lg">
-                            <article class="bg-white h-full shadow flex flex-col rounded-lg overflow-hidden">
+                            <article class="bg-white dark:text-gray-900 h-full shadow flex flex-col rounded-lg overflow-hidden">
                                 <figure class="aspect-square overflow-hidden">
                                     <a href="{{ route('products.show', $product) }}">
                                         <img class="w-full object-cover object-center"
@@ -76,7 +76,7 @@
                                     <h3 class="font-semibold text-lg leading-5">
                                         <a class="hover:underline line-clamp-2 overflow-hidden" href="{{ route('products.show', $product) }}">{{ $product->name }}</a>
                                     </h3>
-                                    <p class="text-neutral-700 py-2">Bs {{ number_format($product->price, 2,'.',',') }}</p>
+                                    <p class="text-neutral-700 font-bold py-2 dark:text-gray-900">Bs {{ number_format($product->price, 2,'.',',') }}</p>
                                 </div>
                                 {{-- <a href="#" class="inline-block w-full bg-gray-700 hover:bg-green-600 text-white py-2 text-center uppercase font-medium">
                                     Pedir

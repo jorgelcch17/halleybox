@@ -6,7 +6,7 @@
             <span class="font-bold">Usted ya envio datos del pago de esta orden</span> solo realize un nuevo envio en caso de que ubiese introducido un dato erroneo.
         </div>
         @endif
-        <div class="bg-white rounded-lg shadow-lg">
+        <div class="bg-white dark:bg-gray-900 dark:text-gray-300 rounded-lg shadow-lg">
             <p class="py-2 px-6 font-bold">Estado de la orden:</p>
             @if ($order->status == 1)
             <div class="px-12 pb-8 mb-6">
@@ -116,8 +116,8 @@
             </div>
             @endif
         </div>
-        <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6 flex items-center justify-between">
-            <p class="text-gray-700 uppercase"><span class="font-semibold">Número de orden:</span>
+        <div class="bg-white dark:bg-gray-900  rounded-lg shadow-lg px-6 py-4 mb-6 flex items-center justify-between">
+            <p class="text-gray-700 dark:text-gray-300 uppercase"><span class="font-semibold">Número de orden:</span>
                 Orden-{{ $order->id }}</p>
 
             @if ($order->status == 1)
@@ -131,8 +131,8 @@
                 </div>
             @endif
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
-            <div class="grid grid-cols-2 gap-6 text-gray-700">
+        <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 mb-6">
+            <div class="grid grid-cols-2 gap-6 text-gray-700 dark:text-gray-300">
                 <div>
                     <p class="text-lg font-semibold uppercase">Envío</p>
                     @if ($order->envio_type == 1)
@@ -152,7 +152,7 @@
                 </div>
             </div>
         </div>
-        <div class="bg-white rounded-lg shadow-lg p-6 text-gray-700 mb-6">
+        <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 dark:text-gray-300 text-gray-700 mb-6">
             <p class="text-xl font-semibold mb-4">Resumen</p>
             <table class="table-auto w-full">
                 <thead>

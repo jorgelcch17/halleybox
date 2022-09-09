@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html x-data :class="$store.darkMode.on && 'dark'" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MY3ZB4W26R"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-    
+
         function gtag() {
             dataLayer.push(arguments);
         }
         gtag('js', new Date());
-    
+
         gtag('config', 'G-MY3ZB4W26R');
     </script>
     <meta charset="utf-8">
@@ -59,7 +59,7 @@
     <h1 class="hidden">HALLEYBOX</h1>
     <x-jet-banner />
 
-    <div class="min-h-screen bg-gray-200">
+    <div class="min-h-screen bg-gray-200 dark:bg-gray-800">
         @livewire('navigation')
 
         <!-- Page Content -->
@@ -96,6 +96,23 @@
             }
         }
     </script>
+
+    {{-- <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.store('darkMode', {
+                on: false,
+
+
+                toggle() {
+
+                    this.on = ! this.on
+                }
+
+            })
+
+        })
+    </script> --}}
+
     @stack('script')
 </body>
 

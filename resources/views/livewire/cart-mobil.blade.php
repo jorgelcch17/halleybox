@@ -1,6 +1,6 @@
 <div>
     <a href="{{ route('shopping-cart') }}"
-        class="py-2 px-4 text-sm flex items-center text-neutral-500 hover:bg-sky-500 hover:text-white">
+        class="py-2 px-4 text-sm flex items-center text-neutral-500 hover:bg-sky-500 hover:text-white dark:text-gray-300 dark:hover:bg-sky-700">
         <span class="flex justify-center w-9">
             <i class="fa-solid fa-cart-shopping"></i>
         </span>

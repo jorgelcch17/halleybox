@@ -15,15 +15,15 @@
                                     </h3>
                                     <p class="text-neutral-700 py-1">Bs {{ number_format($product->price, 2,'.',',') }}</p>
                                 </div>
-                                <a href="#" class="inline-block w-full bg-gray-700 hover:bg-green-600 text-white py-2 text-center uppercase font-medium">
+                                <a href="https://api.whatsapp.com/send?phone=59169356292&text=Buenas%2C%20Quisiera%20adquirir%20este%20producto {{ $product->name }} " class="inline-block w-full bg-gray-700 hover:bg-green-600 text-white py-2 text-center uppercase font-medium">
                                     Pedir
                                     <i class="fa-brands fa-whatsapp ml-1"></i>
                                 </a>
                             </article>
                     @endforeach
                 </div>
-            <button aria-label="Previous" class="glider-prev hidden sm:block">«</button>
-            <button aria-label="Next" class="glider-next hidden sm:block">»</button>
+            {{-- <button aria-label="Previous" class="glider-prev hidden sm:block">«</button>
+            <button aria-label="Next" class="glider-next hidden sm:block">»</button> --}}
             <div role="tablist" class="md:hidden dots"></div>
     @else
         <div class="mb-4 container flex items-center justify-center h-48 bg-white shadow-xl border border-gray-200">

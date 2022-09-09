@@ -3,7 +3,7 @@
         <x-slot name="trigger">
             <span class="relative inline-block cursor-pointer">
                 <a class="pl-3 inline-block no-underline" href="#">
-                    <svg class="fill-current hover:text-sky-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <svg class="fill-current hover:text-sky-500 dark:text-white dark:hover:text-sky-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path d="M21,7H7.462L5.91,3.586C5.748,3.229,5.392,3,5,3H2v2h2.356L9.09,15.414C9.252,15.771,9.608,16,10,16h8 c0.4,0,0.762-0.238,0.919-0.606l3-7c0.133-0.309,0.101-0.663-0.084-0.944C21.649,7.169,21.336,7,21,7z M17.341,14h-6.697L8.371,9 h11.112L17.341,14z" />
                         <circle cx="10.5" cy="18.5" r="1.5" />
                         <circle cx="17.5" cy="18.5" r="1.5" />
@@ -62,15 +62,15 @@
             @endif --}}
 
             <div class="flex flex-col p-6 space-y-4 sm:p-2 overflow-y-auto max-h-96">
-                <h2 class="text-md font-semibold text-center">Mi Carrito de Compra</h2>
+                <h2 class="text-md font-semibold text-center dark:text-gray-300">Mi Carrito de Compra</h2>
                 <hr>      
-                <ul class="flex flex-col divide-y divide-gray-300">
+                <ul class="flex flex-col divide-y divide-gray-300 dark:divide-gray-500">
                     @forelse(Cart::content() as $item)
                         <li class="flex p-2 border-b border-gray-200">
                             <img class="h-20 w-20 object-cover mr-4" src="{{$item->options->image}}" alt="">
 
                             <article class="flex-1">
-                                <h2 class="text-sm text-gray-700 font-bold">{{ $item->name }}</h2>
+                                <h2 class="text-sm text-gray-700 dark:text-gray-300 font-bold">{{ $item->name }}</h2>
 
                                 <div class="flex">
                                     <p class="text-gray-500">cant: {{$item->qty}}</p>
@@ -83,7 +83,7 @@
                                     
                                 </div>
                                 
-                                <p class="font-semibold text-right">Bs {{ number_format($item->price, 2,'.',',') }}</p>
+                                <p class="font-semibold text-right dark:text-gray-300">Bs {{ number_format($item->price, 2,'.',',') }}</p>
                             </article>
                         </li>
                     {{-- <li class="flex flex-col py-6 sm:flex-row sm:justify-between">
@@ -115,8 +115,8 @@
                     </li> --}}
                     @empty
 
-                    <li class="py-6 px-4">
-                        <p class="text-center text-gray-700 select-none">
+                    <li class="py-6 px-4 ">
+                        <p class="text-center text-gray-700 dark:text-gray-300  select-none">
                             No tienes agregado ningun item en el carrito
                         </p>
                     </li>
@@ -126,14 +126,14 @@
                 </ul>
             
                 @if(Cart::count())
-                    <div class="space-y-1 text-right">
+                    <div class="space-y-1 text-right dark:text-white ">
                         <p>Monto Total:
-                            <span class="font-semibold">Bs {{Cart::subtotal()}}</span>
+                            <span class="font-semibold ">Bs {{Cart::subtotal()}}</span>
                         </p>
-                        <p class="text-sm text-gray-400">No incluye los costos de envio</p>
+                        <p class="text-sm text-gray-700 dark:text-gray-500">No incluye los costos de envio</p>
                     </div>
                     <div class="flex justify-end space-x-4">
-                        <a href="{{route('shopping-cart')}}" class="px-6 py-2 border rounded-md bg-sky-200 hover:bg-sky-300">
+                        <a href="{{route('shopping-cart')}}" class="px-6 py-2 rounded-md text-white bg-sky-500 hover:bg-sky-600 dark:bg-sky-800 dark:hover:bg-sky-900 ">
                             <span class="sr-only sm:not-sr-only"></span>Ir al carrito de compras
                         </a>
                     </div>

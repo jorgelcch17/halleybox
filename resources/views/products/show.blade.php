@@ -13,10 +13,10 @@
                 </div>
             </div>
             <div class="-mt-16 md:mt-0">
-                <h1 class="text-2xl font-bold text-neutral-700">{{ $product->name }}</h1>
+                <h1 class="text-2xl font-bold text-neutral-700 dark:text-gray-300">{{ $product->name }}</h1>
                 <div class="flex">
-                    <p class="text-neutral-700">Marca: <a
-                            class="underline capitalize hover:text-orange-500">{{ $product->brand->name }}</a></p>
+                    <p class="text-neutral-700 dark:text-gray-300">Marca: <a
+                            class="underline capitalize hover:text-sky-500 pl-2">{{ $product->brand->name }}</a></p>
                     <p class="text-neutral-700 mx-6">{{ round($product->reviews->avg('rating')) }} <i
                             class="fas fa-star text-sm text-yellow-400"></i></p>
                     <a href=""
@@ -24,10 +24,10 @@
                         reseñas</a>
                 </div>
 
-                <p class="text-2xl font-semibold text-neutral-700 my-4">Bs
+                <p class="text-2xl font-semibold text-neutral-700 dark:text-white my-4">Bs
                     {{ number_format($product->price, 2, '.', ',') }}</p>
 
-                <div class="bg-white rounded-lg shadow-md mb-6">
+                <div class="bg-white dark:bg-gray-900 rounded-lg shadow-md mb-6">
                     <div class="flex p-4 items-center">
                         <span class="flex items-center justify-center h-10 aspect-square rounded-full bg-lime-600">
                             <i class="fas fa-truck text-sm text-white"> </i>
@@ -35,7 +35,7 @@
                         <div class="ml-4">
                             <p class="text-lg font-semibold text-lime-600 leading-none">Se hace envios a domicilio en
                                 Camiri, Villamontes, Yacuiba.</p>
-                            <p class="text-sm leading-none mt-2">Recibelo el
+                            <p class="text-sm leading-none mt-2 dark:text-gray-200">Recibelo el
                                 {{ Date::now()->addDay(1)->locale('es')->format('l j F') }} a partir de 18:00 Horas</p>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
         <x-tab-product :product="$product" />
 
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-lg uppercase text-gray-700 font-bold">Más de {{ $product->subcategory->name }}</h2>
+            <h2 class="text-lg uppercase text-gray-700 dark:text-gray-300 font-bold">Más de {{ $product->subcategory->name }}</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:px-4 py-6 gap-4">
                 @foreach ($more as $product)
                     <article class="bg-white h-full flex flex-col rounded-lg overflow-hidden">

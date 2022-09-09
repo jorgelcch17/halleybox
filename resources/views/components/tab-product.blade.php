@@ -1,14 +1,14 @@
 <div class="md:-mt-16 max-w-7xl mx-auto md:px-4 sm:px-6 lg:px-24 py-6" x-data="{ activeTab: 1 }">
-    <div class="flex justify-center gap-2 mt-8 border-b-2 border-gray-300 pb-2">
-        <a x-on:click="activeTab=1" x-bind:class="activeTab == 1 ? 'bg-gray-100 shadow-sm' : ''"
-            class="text-neutral-700 font-bold px-4 py-2 rounded-md cursor-pointer">Descripción</a>
-        <a x-on:click="activeTab=2" x-bind:class="activeTab == 2 ? 'bg-gray-100 shadow-sm' : ''"
-            class="text-neutral-700 font-bold px-4 py-2 rounded-md cursor-pointer">Reseñas</a>
+    <div class="flex justify-center gap-2 mt-8 border-b-2 border-gray-300 dark:border-gray-500 pb-2">
+        <a x-on:click="activeTab=1" x-bind:class="activeTab == 1 ? 'bg-gray-100 dark:bg-gray-900 shadow-sm' : ''"
+            class="text-neutral-700 dark:text-gray-300 font-bold px-4 py-2 rounded-md cursor-pointer">Descripción</a>
+        <a x-on:click="activeTab=2" x-bind:class="activeTab == 2 ? 'bg-gray-100 dark:bg-gray-900 shadow-sm' : ''"
+            class="text-neutral-700 dark:text-gray-300 font-bold px-4 py-2 rounded-md cursor-pointer">Reseñas</a>
     </div>
-    <div class="bg-gray-200 rounded-md p-2 text-base ck-content" x-show="activeTab==1" x-transition.duration.300>
+    <div class="bg-gray-200 dark:bg-gray-900 dark:text-gray-300 rounded-md p-2 text-base ck-content" x-show="activeTab==1" x-transition.duration.300>
         {!! $product->description !!}
     </div>
-    <div class="bg-gray-200 rounded-md text-xl" x-show="activeTab==2" x-transition.duration.300>
+    <div class="bg-gray-200 dark:bg-gray-900 rounded-md text-xl" x-show="activeTab==2" x-transition.duration.300>
         @can('review', $product)
             <form class="bg-gray-200 rounded-md p-4 mt-2" action="{{route('review.store', $product)}}" method="POST">
                 @csrf
@@ -17,7 +17,7 @@
                         alt="perfil del usuario logeado">
                         <p>{{ Auth::user()->name}}</p>
                 </div>
-                <input  placeholder="Agrega una reseña" class="border-gray-300 order-4 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-2 w-full" type="text" name="comment">
+                <input  placeholder="Agrega una reseña" class="border-gray-300 dark:border-gray-900 order-4 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-2 w-full" type="text" name="comment">
 
                 <div class="flex items-center mt-2 order-3" x-data="{ rating: 5 }">
                     <ul class="flex space-x-2">
@@ -80,7 +80,7 @@
                 </div>
             </div>
         @else
-            <div class="p-2">No hay reseñas de este producto.</div>
+            <div class="p-2 dark:text-gray-300">No hay reseñas de este producto.</div>
         @endif
     </div>
 </div>

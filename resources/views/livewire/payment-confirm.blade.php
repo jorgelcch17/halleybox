@@ -4,7 +4,7 @@
     <p class="mb-6 text-red-500 text-center"><strong>Nota:</strong> Completa la información exactamente con lo que
         dice tu recibo.</p>
     <div class="grid grid-cols-1 md:grid-cols-2">
-        <form class="bg-white p-2 space-y-2" wire:submit.prevent="store" enctype="multipart/form-data">
+        <form class="bg-white dark:text-gray-300 dark:bg-gray-900 p-2 space-y-2" wire:submit.prevent="store" enctype="multipart/form-data">
             @csrf
             <div class="">
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="file_input">Subir

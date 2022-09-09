@@ -6,9 +6,9 @@
         <ul>
             @isset ($category->subcategories)
                 @foreach ($category->subcategories as $subcategory)
-                    <li class="hover:bg-white hover:shadow-sm transition duration-300">
+                    <li class="hover:bg-white dark:hover:bg-sky-900 dark:rounded-md  hover:shadow-sm transition duration-300">
                         <a href="{{ route('categories.show', $category) . '?subcategoria=' . $subcategory->slug }}"
-                            class="text-neutral-500 inline-block font-medium py-1 px-2">
+                            class="text-neutral-500 dark:text-gray-200 inline-block font-medium py-1 px-2">
                             {{ $subcategory->name }}
                         </a>
                     </li>
