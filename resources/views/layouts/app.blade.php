@@ -17,8 +17,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Site Metas -->
+    <title>▶️ HALLEYBOX - Compras Por Internet Bolivia</title>
+    <meta name="description" content="HALLEYBOX es el Comercio Electrónico que te permite realizar compras online de 
+    las mejores Tiendas de Bolivia desde la comodidad de tu hogar">
+    <meta name="author" content="Halleybox">
 
-    <title>HALLEYBOX | Pedí un deseo!</title>
+
     <link rel="icon" href="{{ asset('img/logo-negro.svg') }}">
 
     <!-- Fonts -->
@@ -52,6 +57,25 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="{{ asset('vendor/FlexSlider/jquery.flexslider-min.js') }}"></script>
+
+    <!-- Meta Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '588631909715126');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=588631909715126&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    
 </head>
 
 
