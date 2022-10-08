@@ -17,6 +17,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <!-- Site Metas -->
     <title>▶️ HALLEYBOX - Compras Por Internet Bolivia</title>
     <meta name="description" content="HALLEYBOX es el Comercio Electrónico que te permite realizar compras online de 
@@ -75,6 +76,10 @@
     src="https://www.facebook.com/tr?id=588631909715126&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+
+    <!-- ManyChat -->
+    <script src="//widget.manychat.com/105804512257832.js" defer="defer"></script>
+    <script src="https://mccdn.me/assets/js/widget.js" defer="defer"></script>
     
 </head>
 
