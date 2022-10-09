@@ -8,6 +8,10 @@
         <title>Halleybox | @yield('title-complement')</title>
         <link rel="icon" href="{{ asset('img/logo-negro.svg') }}">
 
+        <!-- URL CANONICA -->
+        <link rel="canonical" href="https://www.halleybox.com/" />
+
+
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
